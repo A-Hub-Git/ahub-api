@@ -1,7 +1,11 @@
-import {createClient} from 'redis';
+const Redis = require('ioredis');
+const fs = require('fs');
+import {REDIS_PORT, REDIS_URL, REDIS_PASSWORD} from '../config';
 
-const store = createClient({
-  url: process.env.REDIS_URL
+const store = new Redis({
+  host: REDIS_URL,
+  port: REDIS_PORT,
+  password: REDIS_PASSWORD
 });
 
 export default store;
