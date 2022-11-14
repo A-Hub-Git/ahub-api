@@ -21,6 +21,8 @@ services:
     build: .
     environment:
       - PORT=8080
+    env_file:
+      - ./env
     depends_on:
       - mongo
   
