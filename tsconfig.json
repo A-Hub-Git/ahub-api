@@ -1,0 +1,19 @@
+{
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "types": ["node"],
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl":"src",
+    "strict": true,
+    "target": "ES2015",
+    "module": "commonjs",
+    "lib": ["DOM", "ES2015"],
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,    
+    "allowSyntheticDefaultImports": true,                
+    "forceConsistentCasingInFileNames": true
+  }
+}

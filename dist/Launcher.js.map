@@ -1,0 +1,1 @@
+{"version":3,"file":"Launcher.js","sourceRoot":"","sources":["../src/Launcher.ts"],"names":[],"mappings":";;;;;AAAA,6DAAqC;AAErC,MAAM,QAAQ;IAGZ;QACE,IAAI,CAAC,MAAM,GAAG,IAAI,gBAAM,EAAE,CAAC;IAC7B,CAAC;IACM,SAAS;QACd,IAAI,CAAC,MAAM,CAAC,YAAY,EAAE,CAAC;IAC7B,CAAC;CACF;AAED,IAAI,QAAQ,EAAE,CAAC,SAAS,EAAE,CAAC"}

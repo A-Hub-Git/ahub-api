@@ -1,0 +1,48 @@
+{
+  "name": "ahub-api",
+  "version": "1.0.0",
+  "description": "This API will enable users check for nearby mobile repair plumbers, mechanics, tow vehicles that can assist  in fixing their issue, which will bring the users and the handsman closer together.",
+  "main": "./dist/Launcher.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./dist/Launcher.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q -L ./dist/Launcher.js\""
+  },
+  "prisma": {
+    "schema": "./src/prisma/schema.prisma"
+  },
+  "author": "Jibril Mohammed",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.6.1",
+    "bcryptjs": "^2.4.3",
+    "connect-redis": "^6.1.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "helmet": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "redis": "^4.5.0",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/connect-redis": "^0.0.19",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^18.11.9",
+    "concurrently": "^7.5.0",
+    "nodemon": "^2.0.20",
+    "prisma": "^4.6.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
