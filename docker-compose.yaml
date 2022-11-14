@@ -28,6 +28,8 @@ services:
   redis:
     image: redis
     container_name: ahub-redis
+    environment:
+      - REDIS_URL={REDIS_URL}
     
 
 volumes:
