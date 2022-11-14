@@ -20,7 +20,8 @@ services:
     command: npx prisma db pull --force
     build: .
     environment:
-      - PORT=8080
+      - PORT={PORT}
+      - DATABASE_URL={DATABASE_URL}
     depends_on:
       - mongo
   
