@@ -4,7 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
-import {Logger, Redis} from '../Libs';
+import {Logger} from '../Libs';
 import {User, Role} from '../Routes';
 import Prisma from '../prisma';
 
