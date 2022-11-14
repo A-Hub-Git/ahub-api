@@ -25,13 +25,13 @@ services:
     depends_on:
       - mongo
   
-  redis:
-    image: redis
-    container_name: ahub-redis
-    environment:
-      - REDIS_URL=${REDIS_URL}
-      - REDIS_PORT=${REDIS_PORT}
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
+  # redis:
+  #   image: redis
+  #   container_name: ahub-redis
+  #   environment:
+  #     - REDIS_URL=${REDIS_URL}
+  #     - REDIS_PORT=${REDIS_PORT}
+  #     - REDIS_PASSWORD=${REDIS_PASSWORD}
     
 
 volumes:

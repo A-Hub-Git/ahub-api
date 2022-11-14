@@ -28,7 +28,7 @@ app.use((0, morgan_1.default)('combined'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cookie_parser_1.default)());
-Libs_1.Redis.on('error', err => Libs_1.Logger.error(`Error connection to redis: ${err}`));
+//Redis.on('error', err => Logger.error(`Error connection to redis: ${err}`));
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         // Connect the client
@@ -41,7 +41,7 @@ function main() {
 main()
     .then(() => __awaiter(void 0, void 0, void 0, function* () {
     yield prisma_1.default.$disconnect();
-    yield Libs_1.Redis.connect();
+    //await Redis.connect();
     Libs_1.Logger.info('Database Connected!!!');
 }))
     .catch((e) => __awaiter(void 0, void 0, void 0, function* () {
