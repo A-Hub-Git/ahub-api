@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
-Redis.on('error', err => Logger.error(`Error connection to redis: ${err}`));
+// Redis.on('error', err => Logger.error(`Error connection to redis: ${err}`));
 
 async function main() {
   // Connect the client
@@ -30,7 +30,7 @@ async function main() {
 main()
   .then(async () => {
     await Prisma.$disconnect();
-    await Redis.connect();
+    // await Redis.connect();
     Logger.info('Database Connected!!!');
   })
   .catch(async e => {
