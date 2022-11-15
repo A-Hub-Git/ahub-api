@@ -1,12 +1,14 @@
 "use strict";
-// const Redis = require('ioredis');
-// const fs = require('fs');
-// import {REDIS_PORT, REDIS_URL, REDIS_PASSWORD} from '../config';
-// const store = new Redis({
-//   host: REDIS_URL,
-//   port: REDIS_PORT,
-//   password: REDIS_PASSWORD
-// });
-// export default store;
-// //A4abjy5t6c1km25dsca15vnwlbxukexrqn8lgemltb46ikn6gcx;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const redis_1 = require("redis");
+const config_1 = require("../config");
+const Logger_1 = __importDefault(require("./Logger"));
+const Redis = (0, redis_1.createClient)({
+    url: `redis://default:${config_1.REDIS_PASSWORD}@${config_1.REDIS_URL}`
+});
+Redis.on('error', err => Logger_1.default.error(`Error connection to redis: ${err}`));
+exports.default = Redis;
 //# sourceMappingURL=redis.js.map

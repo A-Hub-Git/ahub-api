@@ -3,6 +3,6 @@ import {UserController} from '../Controllers';
 
 const Router = router.Router();
 
-Router.get('/', UserController.getRoles).post('/', UserController.createRole);
+Router.route('/').get(UserController.getRoles).post(UserController.createRole);
 
 export default Router;

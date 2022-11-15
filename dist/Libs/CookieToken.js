@@ -3,10 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const jwt_1 = __importDefault(require("../Libs/jwt"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const config_1 = require("../config");
 class Helper {
     static cookieToken(user, res) {
-        const token = (0, jwt_1.default)(user.id);
+        const token = this.getJwtToken(user.id);
         const options = {
             expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
             httpOnly: true
@@ -20,4 +21,7 @@ class Helper {
     }
 }
 exports.default = Helper;
+Helper.getJwtToken = (userId) => {
+    return jsonwebtoken_1.default.sign({ userId }, config_1.JWT_SECRET, { expiresIn: '1 day' });
+};
 //# sourceMappingURL=CookieToken.js.map

@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = "mongodb+srv://ahub_username:ahub_password@cluster0.qutaxg0.mongodb.net/ahub-db?ssl=true&connectTimeoutMS=5000&maxPoolSize=50"
+  url      = env("DATABASE_URL")
 }
 
 enum Gender {
@@ -20,9 +20,14 @@ enum VerificationType {
   DriverLicense
 }
 
+enum ROLE {
+  Patron
+  Artisan
+}
+
 model Role {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
+  name        ROLE   @unique
   description String
   users       User[]
 }

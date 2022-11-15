@@ -1,4 +1,4 @@
-import {PrismaClient} from '@prisma/client';
+import {PrismaClient, User, Role} from '@prisma/client';
 const Prisma = new PrismaClient({
   errorFormat: 'pretty',
   log: [
@@ -20,4 +20,4 @@ const Prisma = new PrismaClient({
     }
   ]
 });
-export default Prisma;
+export {Prisma, User, Role};

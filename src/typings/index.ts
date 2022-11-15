@@ -1,6 +1,6 @@
 export interface IRole {
   id: string;
-  name: string;
+  name: 'Patron' | 'Artisan';
   description: string;
   userId: IUser;
 }

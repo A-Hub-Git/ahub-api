@@ -8,33 +8,53 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const client_1 = require("@prisma/client");
-const prisma = new client_1.PrismaClient();
+const chache_1 = __importDefault(require("../Utils/chache"));
+const Libs_1 = require("../Libs");
+const redis_1 = __importDefault(require("../Libs/redis"));
+const prisma_1 = require("../prisma");
 class UserService {
     static role(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.role.create({ data });
-        });
-    }
-    static getRoles() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.role.findMany();
+            return yield prisma_1.Prisma.role.create({ data });
         });
     }
     static create(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.user.create({ data });
+            return yield prisma_1.Prisma.user.create({ data });
+        });
+    }
+    static getRoles() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const roles = yield (0, chache_1.default)('roles', () => __awaiter(this, void 0, void 0, function* () {
+                    const data = yield prisma_1.Prisma.role.findMany();
+                    return data;
+                }));
+                return roles;
+            }
+            catch (error) {
+                Libs_1.Logger.error(`Error fetching role (REDIS..): ${error}`);
+            }
         });
     }
     static getUsers() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.user.findMany();
+            const cachedUsers = yield redis_1.default.get('users');
+            if (cachedUsers) {
+                return JSON.parse(cachedUsers);
+            }
+            const dbUsers = yield prisma_1.Prisma.user.findMany();
+            redis_1.default.setEx('users', 3600, JSON.stringify(dbUsers));
+            return dbUsers;
         });
     }
-    static getById() {
+    static getByUnique() {
         return __awaiter(this, void 0, void 0, function* () {
-            //return await prisma.user.findOne();
+            return yield prisma_1.Prisma.user.findUnique({ where: {} });
         });
     }
 }

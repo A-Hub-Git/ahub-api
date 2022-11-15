@@ -4,7 +4,7 @@ import {HTTP_CODES, ResponseStatus} from '../Utils';
 class BaseRequestHandler {
   protected statusCode: HTTP_CODES;
   protected type: ResponseStatus | null;
-  protected data: object | null;
+  protected data?: object | null;
   protected message: string | null;
   constructor() {
     this.statusCode = 200;
@@ -13,7 +13,7 @@ class BaseRequestHandler {
     this.message = null;
   }
 
-  setSuccess(statusCode: HTTP_CODES, message: string, data: any) {
+  setSuccess(statusCode: HTTP_CODES, message: string, data?: any) {
     this.statusCode = statusCode;
     this.message = message;
     this.data = data;

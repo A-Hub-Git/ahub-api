@@ -12,19 +12,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const prisma_1 = require("../prisma");
 const ResponseCode_1 = require("./../Utils/ResponseCode");
 const BaseRequestHandle_1 = __importDefault(require("../Server/BaseRequestHandle"));
 const Services_1 = require("../Services");
+const Libs_1 = require("../Libs");
 class UserController {
     static createRole(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const data = req.body;
             try {
+                Libs_1.Logger.info('Creating Role...');
+                const roles = yield Services_1.UserService.getRoles();
+                if (roles.length == 2) {
+                    BaseRequestHandle_1.default.setError(ResponseCode_1.HTTP_CODES.BAD_REQUEST, 'Roles Exceeded');
+                    Libs_1.Logger.info('Roles Exceeded');
+                    return BaseRequestHandle_1.default.send(res);
+                }
                 const createdRole = yield Services_1.UserService.role(data);
                 BaseRequestHandle_1.default.setSuccess(ResponseCode_1.HTTP_CODES.CREATED, 'Role created', createdRole);
+                Libs_1.Logger.info('Role Created...');
                 return BaseRequestHandle_1.default.send(res);
             }
             catch (error) {
+                Libs_1.Logger.error('Error Creating Role...');
                 BaseRequestHandle_1.default.setError(ResponseCode_1.HTTP_CODES.INTERNAL_SERVER_ERROR, ResponseCode_1.ResponseMessage.INTERNAL_SERVER_ERROR);
                 return BaseRequestHandle_1.default.send(res);
             }
@@ -63,17 +74,21 @@ class UserController {
     static createUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const data = req.body;
+            const user = data.role;
             try {
-                data.roleId =
-                    data.user_type === 'patron'
-                        ? '6371aae9667890da539ae46c'
-                        : '6371ad91b58dd5a52051907d';
-                delete data.user_type;
+                const role = yield prisma_1.Prisma.role.findMany();
+                Libs_1.Logger.info(`Creating ${data.role}...`);
+                data.roleId = data.role === 'Patron' ? role[0].id : role[1].id;
+                delete data.role;
+                data.location = JSON.parse(data.location);
+                data.password = yield Libs_1.Authorization.createHash(data.password);
                 const createdUser = yield Services_1.UserService.create(data);
-                BaseRequestHandle_1.default.setSuccess(ResponseCode_1.HTTP_CODES.CREATED, ResponseCode_1.ResponseMessage.CREATED, createdUser);
-                return BaseRequestHandle_1.default.send(res);
+                Libs_1.Logger.info(`${user} Created Successfully😅`);
+                BaseRequestHandle_1.default.setSuccess(ResponseCode_1.HTTP_CODES.CREATED, `${user} Created Successfully`, createdUser);
+                BaseRequestHandle_1.default.send(res);
             }
             catch (error) {
+                Libs_1.Logger.error(`Error creating ${user}  😠`);
                 BaseRequestHandle_1.default.setError(ResponseCode_1.HTTP_CODES.INTERNAL_SERVER_ERROR, `${ResponseCode_1.ResponseMessage.INTERNAL_SERVER_ERROR + error}`);
                 return BaseRequestHandle_1.default.send(res);
             }

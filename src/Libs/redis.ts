@@ -1,12 +1,9 @@
-// const Redis = require('ioredis');
-// const fs = require('fs');
-// import {REDIS_PORT, REDIS_URL, REDIS_PASSWORD} from '../config';
+import {createClient} from 'redis';
+import {REDIS_URL, REDIS_PASSWORD} from '../config';
+import Logger from './Logger';
 
-// const store = new Redis({
-//   host: REDIS_URL,
-//   port: REDIS_PORT,
-//   password: REDIS_PASSWORD
-// });
-
-// export default store;
-// //A4abjy5t6c1km25dsca15vnwlbxukexrqn8lgemltb46ikn6gcx;
+const Redis = createClient({
+  url: `redis://default:${REDIS_PASSWORD}@${REDIS_URL}`
+});
+Redis.on('error', err => Logger.error(`Error connection to redis: ${err}`));
+export default Redis;

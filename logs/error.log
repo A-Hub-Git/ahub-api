@@ -25,3 +25,27 @@ AHUB API:ERROR [Nov-13-2022 19:46:31] Error Connecting to Database
 AHUB API:ERROR [Nov-13-2022 19:53:41] Error Connecting to Database
 AHUB API:ERROR [Nov-13-2022 21:38:52] Error Connecting to Database: Error: Error in connector: Error creating a database connection. (An error occurred during DNS resolution: no record found for name: _mongodb._tcp.cluster0.hgpz7rd.mongodb.net. type: SRV class: IN)
 AHUB API:ERROR [Nov-13-2022 21:41:27] Error Connecting to Database: Error: Error in connector: Error creating a database connection. (An error occurred during DNS resolution: no record found for name: _mongodb._tcp.cluster0.hgpz7rd.mongodb.net. type: SRV class: IN)
+AHUB API:ERROR [Nov-15-2022 00:35:33] Login failed. Please try again later.
+AHUB API:ERROR [Nov-15-2022 00:38:06] Login failed. Please try again later.
+AHUB API:ERROR [Nov-15-2022 01:50:50] Error creating undefined😠
+AHUB API:ERROR [Nov-15-2022 02:06:23] Error creating user 😠
+AHUB API:ERROR [Nov-15-2022 02:09:02] Error creating user 😠
+AHUB API:ERROR [Nov-15-2022 02:10:18] Error creating user 😠
+AHUB API:ERROR [Nov-15-2022 02:19:18] Error creating user 😠
+AHUB API:ERROR [Nov-15-2022 02:24:15] Login failed. Please try again later.
+AHUB API:ERROR [Nov-15-2022 02:24:56] Login failed. Please try again later.
+AHUB API:ERROR [Nov-15-2022 02:35:14] Error creating user 😠
+AHUB API:ERROR [Nov-15-2022 02:35:55] Error creating user 😠
+AHUB API:ERROR [Nov-15-2022 02:38:44] Error creating Patron   😠
+AHUB API:ERROR [Nov-15-2022 02:57:05] Error connection to redis: Error: Connection timeout
+AHUB API:ERROR [Nov-15-2022 04:23:25] Error fetching role (REDIS..)
+AHUB API:ERROR [Nov-15-2022 04:23:25] Error Creating Role...
+AHUB API:ERROR [Nov-15-2022 04:24:16] Error fetching role (REDIS..): SyntaxError: Unexpected token o in JSON at position 1
+AHUB API:ERROR [Nov-15-2022 04:24:16] Error Creating Role...
+AHUB API:ERROR [Nov-15-2022 04:25:56] Error fetching role (REDIS..): SyntaxError: Unexpected token o in JSON at position 1
+AHUB API:ERROR [Nov-15-2022 04:25:56] Error Creating Role...
+AHUB API:ERROR [Nov-15-2022 04:26:41] Error Creating Role...
+AHUB API:ERROR [Nov-15-2022 04:27:24] Error fetching role (REDIS..): SyntaxError: Unexpected token o in JSON at position 1
+AHUB API:ERROR [Nov-15-2022 04:27:24] Error Creating Role...
+AHUB API:ERROR [Nov-15-2022 04:28:27] Error fetching role (REDIS..): SyntaxError: Unexpected token o in JSON at position 1
+AHUB API:ERROR [Nov-15-2022 04:28:28] Error Creating Role...

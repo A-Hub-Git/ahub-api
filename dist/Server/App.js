@@ -20,7 +20,8 @@ const helmet_1 = __importDefault(require("helmet"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const Libs_1 = require("../Libs");
 const Routes_1 = require("../Routes");
-const prisma_1 = __importDefault(require("../prisma"));
+const prisma_1 = require("../prisma");
+const redis_1 = __importDefault(require("../Libs/redis"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({ origin: '*' }));
 app.use((0, helmet_1.default)());
@@ -28,24 +29,25 @@ app.use((0, morgan_1.default)('combined'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cookie_parser_1.default)());
-//Redis.on('error', err => Logger.error(`Error connection to redis: ${err}`));
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         // Connect the client
-        //await Prisma.$connect();
+        //await Prisma.$connect();\
+        yield redis_1.default.connect();
         app.use('/api/v1/users', Routes_1.User);
         app.use('/api/v1/roles', Routes_1.Role);
+        app.use('/api/v1/auth', Routes_1.Auth);
         //routes
     });
 }
 main()
     .then(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield prisma_1.default.$disconnect();
+    yield prisma_1.Prisma.$disconnect();
     //await Redis.connect();
     Libs_1.Logger.info('Database Connected!!!');
 }))
     .catch((e) => __awaiter(void 0, void 0, void 0, function* () {
-    yield prisma_1.default.$disconnect();
+    yield prisma_1.Prisma.$disconnect();
     Libs_1.Logger.error(`Error Connecting to Database: ${e}`);
     process.exit(1);
 }));

@@ -5,8 +5,9 @@ import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import {Logger} from '../Libs';
-import {User, Role} from '../Routes';
-import Prisma from '../prisma';
+import {User, Role, Auth} from '../Routes';
+import {Prisma} from '../prisma';
+import Redis from '../Libs/redis';
 
 const app: Express = express();
 
@@ -17,16 +18,17 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
-//Redis.on('error', err => Logger.error(`Error connection to redis: ${err}`));
-
 async function main() {
   // Connect the client
-  //await Prisma.$connect();
+  //await Prisma.$connect();\
+  await Redis.connect();
   app.use('/api/v1/users', User);
   app.use('/api/v1/roles', Role);
+  app.use('/api/v1/auth', Auth);
 
   //routes
 }
+
 main()
   .then(async () => {
     await Prisma.$disconnect();

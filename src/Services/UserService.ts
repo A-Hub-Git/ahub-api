@@ -1,22 +1,37 @@
-import {PrismaClient} from '@prisma/client';
-import {IRole, IUser} from '../typings';
-import BaseRequestHandler from 'Server/BaseRequestHandle';
+import Cache from '../Utils/chache';
+import {Logger} from '../Libs';
+import Redis from '../Libs/redis';
+import {Prisma, User, Role} from '../prisma';
 
-const prisma = new PrismaClient();
 export default class UserService {
-  static async role(data: IRole) {
-    return await prisma.role.create({data});
+  static async role(data: Role) {
+    return await Prisma.role.create({data});
+  }
+  static async create(data: User) {
+    return await Prisma.user.create({data});
   }
   static async getRoles() {
-    return await prisma.role.findMany();
+    try {
+      const roles = await Cache('roles', async () => {
+        const data = await Prisma.role.findMany();
+        return data;
+      });
+      return roles as any;
+    } catch (error) {
+      Logger.error(`Error fetching role (REDIS..): ${error}`);
+    }
   }
-  static async create(data: any) {
-    return await prisma.user.create({data});
-  }
+
   static async getUsers() {
-    return await prisma.user.findMany();
+    const cachedUsers = await Redis.get('users');
+    if (cachedUsers) {
+      return JSON.parse(cachedUsers);
+    }
+    const dbUsers = await Prisma.user.findMany();
+    Redis.setEx('users', 3600, JSON.stringify(dbUsers));
+    return dbUsers;
   }
-  static async getById() {
-    //return await prisma.user.findOne();
+  static async getByUnique() {
+    return await Prisma.user.findUnique({where: {}});
   }
 }
