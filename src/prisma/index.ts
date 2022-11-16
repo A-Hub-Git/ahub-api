@@ -1,23 +1,13 @@
 import {PrismaClient, User, Role} from '@prisma/client';
-const Prisma = new PrismaClient({
-  errorFormat: 'pretty',
-  log: [
-    {
-      emit: 'event',
-      level: 'query'
-    },
-    {
-      emit: 'stdout',
-      level: 'error'
-    },
-    {
-      emit: 'stdout',
-      level: 'info'
-    },
-    {
-      emit: 'stdout',
-      level: 'warn'
-    }
-  ]
+import {Logger} from '../Libs';
+const Prisma = new PrismaClient();
+Prisma.$use(async (params, next) => {
+  const before = Date.now();
+  const result = await next(params);
+  const after = Date.now();
+  Logger.info(
+    `Query ${params.model}.${params.action} took ${after - before}ms`
+  );
+  return result;
 });
 export {Prisma, User, Role};

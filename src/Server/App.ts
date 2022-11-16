@@ -20,8 +20,8 @@ app.use(cookieParser());
 
 async function main() {
   // Connect the client
-  //await Prisma.$connect();\
-  await Redis.connect();
+  await Prisma.$connect();
+
   app.use('/api/v1/users', User);
   app.use('/api/v1/roles', Role);
   app.use('/api/v1/auth', Auth);

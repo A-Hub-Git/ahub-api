@@ -8,17 +8,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Prisma = void 0;
-const client_1 = require("@prisma/client");
-const Libs_1 = require("../Libs");
-const Prisma = new client_1.PrismaClient();
-exports.Prisma = Prisma;
-Prisma.$use((params, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const before = Date.now();
-    const result = yield next(params);
-    const after = Date.now();
-    Libs_1.Logger.info(`Query ${params.model}.${params.action} took ${after - before}ms`);
-    return result;
-}));
-//# sourceMappingURL=index.js.map
+const BaseValidator_1 = __importDefault(require("./BaseValidator"));
+class AuthValidator extends BaseValidator_1.default {
+    static login(data, res, cb) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const rules = {
+                email: 'required|email',
+                password: 'required|min:6'
+            };
+            this.validator(data, rules, res, cb);
+        });
+    }
+}
+exports.default = AuthValidator;
+//# sourceMappingURL=AuthValidator.js.map

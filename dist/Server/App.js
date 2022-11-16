@@ -21,7 +21,6 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const Libs_1 = require("../Libs");
 const Routes_1 = require("../Routes");
 const prisma_1 = require("../prisma");
-const redis_1 = __importDefault(require("../Libs/redis"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({ origin: '*' }));
 app.use((0, helmet_1.default)());
@@ -32,8 +31,7 @@ app.use((0, cookie_parser_1.default)());
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         // Connect the client
-        //await Prisma.$connect();\
-        yield redis_1.default.connect();
+        yield prisma_1.Prisma.$connect();
         app.use('/api/v1/users', Routes_1.User);
         app.use('/api/v1/roles', Routes_1.Role);
         app.use('/api/v1/auth', Routes_1.Auth);

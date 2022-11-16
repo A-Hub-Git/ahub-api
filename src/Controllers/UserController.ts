@@ -4,7 +4,7 @@ import {HTTP_CODES, ResponseMessage} from './../Utils/ResponseCode';
 import BaseRequestHandle from '../Server/BaseRequestHandle';
 import {UserService} from '../Services';
 import {Authorization, Logger} from '../Libs';
-import {IUser} from '../typings';
+import {UserValidator} from '../Validators';
 
 export default class UserController {
   static async createRole(req: Request, res: Response) {
@@ -72,28 +72,30 @@ export default class UserController {
   static async createUser(req: Request, res: Response) {
     const data = req.body;
     const user = data.role;
-    try {
-      const role = await Prisma.role.findMany();
-      Logger.info(`Creating ${data.role}...`);
-      data.roleId = data.role === 'Patron' ? role[0].id : role[1].id;
-      delete data.role;
-      data.location = JSON.parse(data.location);
-      data.password = await Authorization.createHash(data.password);
-      const createdUser = await UserService.create(data);
-      Logger.info(`${user} Created Successfully😅`);
-      BaseRequestHandle.setSuccess(
-        HTTP_CODES.CREATED,
-        `${user} Created Successfully`,
-        createdUser
-      );
-      BaseRequestHandle.send(res);
-    } catch (error) {
-      Logger.error(`Error creating ${user}  😠`);
-      BaseRequestHandle.setError(
-        HTTP_CODES.INTERNAL_SERVER_ERROR,
-        `${ResponseMessage.INTERNAL_SERVER_ERROR + error}`
-      );
-      return BaseRequestHandle.send(res);
-    }
+    await UserValidator.createAccount(data, res, async () => {
+      try {
+        const role = await Prisma.role.findMany();
+        Logger.info(`Creating ${data.role}...`);
+        data.roleId = data.role === 'Patron' ? role[0].id : role[1].id;
+        delete data.role;
+        data.location = JSON.parse(data.location);
+        data.password = await Authorization.createHash(data.password);
+        const createdUser = await UserService.create(data);
+        Logger.info(`${user} Created Successfully😅`);
+        BaseRequestHandle.setSuccess(
+          HTTP_CODES.CREATED,
+          `${user} Created Successfully`,
+          createdUser
+        );
+        return BaseRequestHandle.send(res);
+      } catch (error) {
+        Logger.error(`Error creating ${user} : ${JSON.stringify(error)}  😠`);
+        BaseRequestHandle.setError(
+          HTTP_CODES.INTERNAL_SERVER_ERROR,
+          `${ResponseMessage.INTERNAL_SERVER_ERROR + error}`
+        );
+        return BaseRequestHandle.send(res);
+      }
+    });
   }
 }

@@ -10,14 +10,13 @@ services:
     image: mongo
     container_name: ahub-db
     environment:
-      - MONGO_INITDB_ROOT_USERNAME={MONGO_INITDB_ROOT_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD={MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
       - mongo-db:/data/db
 
 
   backend:
-    command: npx prisma db pull --force
     build: .
     environment:
       - PORT=8080
