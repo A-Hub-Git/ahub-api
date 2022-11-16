@@ -28,6 +28,7 @@ app.use((0, morgan_1.default)('combined'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cookie_parser_1.default)());
+app.enable('trust proxy');
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         // Connect the client
