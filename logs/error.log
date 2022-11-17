@@ -9191,3 +9191,5 @@ AHUB API:ERROR [Nov-15-2022 21:07:44] Error connection to redis: Error: getaddri
 AHUB API:ERROR [Nov-15-2022 21:07:45] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
 AHUB API:ERROR [Nov-15-2022 21:07:45] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
 AHUB API:ERROR [Nov-15-2022 21:07:46] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-16-2022 19:59:13] Error Connecting to Database: Error: Error in connector: Error creating a database connection. (An error occurred during DNS resolution: request timed out)
+AHUB API:ERROR [Nov-16-2022 19:59:16] Error Connecting to Database: Error: Error in connector: Error creating a database connection. (An error occurred during DNS resolution: request timed out)
