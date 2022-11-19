@@ -1,6 +1,8 @@
+import {HTTP_CODES} from './../Utils/ResponseCode';
 import BaseValidator from './BaseValidator';
-import {User} from '../prisma';
+import {Prisma, User} from '../prisma';
 import {Response} from 'express';
+import BaseRequestHandle from '../Server/BaseRequestHandle';
 
 export default class UserValidator extends BaseValidator {
   static async createAccount(data: User, res: Response, cb: () => any) {
@@ -11,6 +13,14 @@ export default class UserValidator extends BaseValidator {
       password: 'required|min:6',
       role: 'required|alpha|in:Patron,Artisan'
     };
+    const user = await Prisma.user.findUnique({where: {email: data.email}});
+    if (user) {
+      BaseRequestHandle.setError(
+        HTTP_CODES.CONFLICT,
+        `user with this email: ${data.email} exist`
+      );
+      return BaseRequestHandle.send(res);
+    }
     this.validator(data, rules, res, cb);
   }
   //   static createAccount = () => {

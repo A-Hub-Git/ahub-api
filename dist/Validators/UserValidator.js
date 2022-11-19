@@ -12,7 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const ResponseCode_1 = require("./../Utils/ResponseCode");
 const BaseValidator_1 = __importDefault(require("./BaseValidator"));
+const prisma_1 = require("../prisma");
+const BaseRequestHandle_1 = __importDefault(require("../Server/BaseRequestHandle"));
 class UserValidator extends BaseValidator_1.default {
     static createAccount(data, res, cb) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -23,6 +26,11 @@ class UserValidator extends BaseValidator_1.default {
                 password: 'required|min:6',
                 role: 'required|alpha|in:Patron,Artisan'
             };
+            const user = yield prisma_1.Prisma.user.findUnique({ where: { email: data.email } });
+            if (user) {
+                BaseRequestHandle_1.default.setError(ResponseCode_1.HTTP_CODES.CONFLICT, `user with this email: ${data.email} exist`);
+                return BaseRequestHandle_1.default.send(res);
+            }
             this.validator(data, rules, res, cb);
         });
     }

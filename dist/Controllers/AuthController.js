@@ -29,9 +29,11 @@ class AuthController extends Constant_1.default {
                     const user = yield prisma_1.Prisma.user.findUnique({
                         where: { email }
                     });
-                    const data = yield AuthService_1.default.login(user, password.trim());
-                    BaseRequestHandle_1.default.setSuccess(200, 'Login Successfully...', data);
-                    return BaseRequestHandle_1.default.send(res);
+                    yield AuthService_1.default.login(user, password.trim());
+                    user.password = '';
+                    Libs_1.Authorization.cookieToken(user, res);
+                    // BaseRequestHandle.setSuccess(200, 'Login Successfully...', data);
+                    // return BaseRequestHandle.send(res);
                 }
                 catch (error) {
                     Libs_1.Logger.error(`Login failed. Please try again later.: ${error}`);

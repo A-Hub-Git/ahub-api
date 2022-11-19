@@ -5,6 +5,7 @@ import BaseRequestHandle from '../Server/BaseRequestHandle';
 import {UserService} from '../Services';
 import {Authorization, Logger} from '../Libs';
 import {UserValidator} from '../Validators';
+import {ACL_ROLES} from '../Utils';
 
 export default class UserController {
   static async createRole(req: Request, res: Response) {
@@ -13,7 +14,7 @@ export default class UserController {
       Logger.info('Creating Role...');
       const roles = await UserService.getRoles();
 
-      if (roles.length == 2) {
+      if (roles?.length == 2) {
         BaseRequestHandle.setError(HTTP_CODES.BAD_REQUEST, 'Roles Exceeded');
         Logger.info('Roles Exceeded');
         return BaseRequestHandle.send(res);
@@ -74,12 +75,10 @@ export default class UserController {
     const user = data.role;
     await UserValidator.createAccount(data, res, async () => {
       try {
-        const role = await Prisma.role.findMany();
-        Logger.info(`Creating ${data.role}...`);
-        data.roleId = data.role === 'Patron' ? role[0].id : role[1].id;
+        Logger.info(`Creating ${data.role}... 🏃‍♂️`);
+        data.roleId =
+          data.role === 'Patron' ? ACL_ROLES.PATRON : ACL_ROLES.ARTISAN;
         delete data.role;
-        data.location = JSON.parse(data.location);
-        data.password = await Authorization.createHash(data.password);
         const createdUser = await UserService.create(data);
         Logger.info(`${user} Created Successfully😅`);
         BaseRequestHandle.setSuccess(

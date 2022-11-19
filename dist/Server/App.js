@@ -42,7 +42,7 @@ function main() {
 main()
     .then(() => __awaiter(void 0, void 0, void 0, function* () {
     yield prisma_1.Prisma.$disconnect();
-    //await Redis.connect();
+    //await RedisClient.connect();
     Libs_1.Logger.info('Database Connected!!!');
 }))
     .catch((e) => __awaiter(void 0, void 0, void 0, function* () {

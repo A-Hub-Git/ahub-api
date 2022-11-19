@@ -12,12 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const prisma_1 = require("../prisma");
 const ResponseCode_1 = require("./../Utils/ResponseCode");
 const BaseRequestHandle_1 = __importDefault(require("../Server/BaseRequestHandle"));
 const Services_1 = require("../Services");
 const Libs_1 = require("../Libs");
 const Validators_1 = require("../Validators");
+const Utils_1 = require("../Utils");
 class UserController {
     static createRole(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -25,7 +25,7 @@ class UserController {
             try {
                 Libs_1.Logger.info('Creating Role...');
                 const roles = yield Services_1.UserService.getRoles();
-                if (roles.length == 2) {
+                if ((roles === null || roles === void 0 ? void 0 : roles.length) == 2) {
                     BaseRequestHandle_1.default.setError(ResponseCode_1.HTTP_CODES.BAD_REQUEST, 'Roles Exceeded');
                     Libs_1.Logger.info('Roles Exceeded');
                     return BaseRequestHandle_1.default.send(res);
@@ -78,12 +78,10 @@ class UserController {
             const user = data.role;
             yield Validators_1.UserValidator.createAccount(data, res, () => __awaiter(this, void 0, void 0, function* () {
                 try {
-                    const role = yield prisma_1.Prisma.role.findMany();
-                    Libs_1.Logger.info(`Creating ${data.role}...`);
-                    data.roleId = data.role === 'Patron' ? role[0].id : role[1].id;
+                    Libs_1.Logger.info(`Creating ${data.role}... 🏃‍♂️`);
+                    data.roleId =
+                        data.role === 'Patron' ? Utils_1.ACL_ROLES.PATRON : Utils_1.ACL_ROLES.ARTISAN;
                     delete data.role;
-                    data.location = JSON.parse(data.location);
-                    data.password = yield Libs_1.Authorization.createHash(data.password);
                     const createdUser = yield Services_1.UserService.create(data);
                     Libs_1.Logger.info(`${user} Created Successfully😅`);
                     BaseRequestHandle_1.default.setSuccess(ResponseCode_1.HTTP_CODES.CREATED, `${user} Created Successfully`, createdUser);

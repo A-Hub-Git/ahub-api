@@ -6,6 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const Controllers_1 = require("../Controllers");
 const Router = express_1.default.Router();
-Router.post('/login', Controllers_1.AuthController.signIn);
+class AuthRoute {
+    post() {
+        Router.post('/login', Controllers_1.AuthController.signIn);
+    }
+}
+new AuthRoute().post();
 exports.default = Router;
-//# sourceMappingURL=auth.js.map
+//# sourceMappingURL=AuthRoute.js.map

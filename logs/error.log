@@ -9193,3 +9193,309 @@ AHUB API:ERROR [Nov-15-2022 21:07:45] Error connection to redis: Error: getaddri
 AHUB API:ERROR [Nov-15-2022 21:07:46] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
 AHUB API:ERROR [Nov-16-2022 19:59:13] Error Connecting to Database: Error: Error in connector: Error creating a database connection. (An error occurred during DNS resolution: request timed out)
 AHUB API:ERROR [Nov-16-2022 19:59:16] Error Connecting to Database: Error: Error in connector: Error creating a database connection. (An error occurred during DNS resolution: request timed out)
+AHUB API:ERROR [Nov-17-2022 04:26:12] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-17-2022 04:27:27] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-17-2022 18:15:11] Error Connecting to Database: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 18:16:39] Error Connecting to Database: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 18:23:30] Error Connecting to Database: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 18:26:28] Error Connecting to Database: TypeError: (0 , redis_1.default) is not a function
+AHUB API:ERROR [Nov-17-2022 18:27:57] Error Connecting to Database: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 18:28:30] Error Connecting to Database: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 18:30:09] Error Connecting to Database: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 18:30:20] Error Connecting to Database: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 18:45:38] Error Connecting to Database: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 18:47:43] Error Connecting to Database: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 18:50:07] Error Connecting to Database: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 18:50:38] Error Connecting to Database: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 18:52:49] Error Connecting to Database: TypeError: Class constructor Client cannot be invoked without 'new'
+AHUB API:ERROR [Nov-17-2022 18:55:43] Error Connecting to Database: TypeError: Libs_2.RedisClient.open is not a function
+AHUB API:ERROR [Nov-17-2022 19:35:11] Error Connecting to Database: TypeError: Libs_2.RedisClient.open is not a function
+AHUB API:ERROR [Nov-17-2022 19:51:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:10] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:10] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:10] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:11] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:11] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:12] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:12] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:13] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:51:18] Error connection to redis: Error: Connection timeout
+AHUB API:ERROR [Nov-17-2022 19:52:05] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:05] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:05] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:07] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:07] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:08] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:08] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:10] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:57] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:57] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:57] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:58] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:58] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:58] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:58] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:58] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:59] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:52:59] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:00] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:00] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:01] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:01] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:02] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:02] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:03] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:03] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:04] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:04] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:05] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:05] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:53:07] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:54] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:54] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:54] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:54] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:54] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:55] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:55] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:55] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:56] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:56] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:56] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:57] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:57] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:58] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:59] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:58:59] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:00] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:00] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:01] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:01] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:02] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:02] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:03] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:03] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:04] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:04] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:05] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:05] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:07] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:07] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:08] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:08] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:10] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:10] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:11] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:12] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:12] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:13] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:13] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:14] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:36] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:36] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:36] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:36] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:36] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:36] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:36] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:37] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:37] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:37] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:38] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:38] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:39] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:39] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:56] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:56] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:56] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:56] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:56] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:57] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:57] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:57] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:58] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:58] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:58] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:59] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 19:59:59] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:00] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:00] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:01] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:02] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:02] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:03] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:03] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:04] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:04] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:05] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:05] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:07] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:07] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:08] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:08] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:10] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:10] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:11] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:11] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:12] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:12] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:13] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:13] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:14] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:14] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:15] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:16] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:26] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:26] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:26] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:26] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:26] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:26] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:26] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:27] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:27] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:28] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:28] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:28] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:29] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:00:29] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:06] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:07] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:07] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:07] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:08] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:08] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:09] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:10] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:10] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:11] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:11] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:12] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:12] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:13] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:13] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:14] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:14] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:15] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:16] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:16] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:17] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:17] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:18] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:18] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:19] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:19] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:20] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:26:20] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:39] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:39] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:39] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:39] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:39] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:39] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:40] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:40] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:40] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:41] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:41] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:42] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:42] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:43] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:43] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:44] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:44] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:45] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:45] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:46] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:46] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:47] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:47] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:49] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:50] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:50] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:51] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:51] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:52] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:52] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:28:53] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:21] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:21] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:21] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:21] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:21] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:21] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:22] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:22] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:22] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:23] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:23] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:24] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:24] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:25] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:25] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:26] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:26] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:27] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:27] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:28] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:28] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:29] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:29] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:30] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:30] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:31] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:32] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:32] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:33] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:33] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-17-2022 20:29:34] Error connection to redis: Error: getaddrinfo EAI_AGAIN redis-10612.c93.us-east-1-3.ec2.cloud.redislabs.com
+AHUB API:ERROR [Nov-19-2022 00:42:43] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 00:45:16] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 00:46:10] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 01:02:06] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 01:03:07] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 01:05:39] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 01:05:45] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 01:06:10] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 01:07:27] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 01:08:57] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 01:10:30] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 01:42:32] Error creating Patron : {"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:1268:12)\n    at IncomingMessage.handleStreamEnd (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:2446:11)\n    at IncomingMessage.emit (node:events:532:35)\n    at endReadableNT (node:internal/streams/readable:1346:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)","config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{"Blob":null},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json","Authorization":"Bearer d0f03e6c80df4e97b74feda4ac1d092f","User-Agent":"axios/1.1.3","Content-Length":"49","Accept-Encoding":"gzip, deflate, br"},"method":"post","url":"https://us.sms.api.sinch.com/xms/v1/e0c81087c4a5433394bf1607b2c5a86a/batches","data":"{\"from\":\"+2348034074748\",\"to\":[\"+2348034074748\"]}"},"code":"ERR_BAD_REQUEST","status":400}  😠
+AHUB API:ERROR [Nov-19-2022 01:47:40] Error creating Patron : {"message":"getaddrinfo EAI_AGAIN us.sms.api.sinch.com","name":"Error","stack":"Error: getaddrinfo EAI_AGAIN us.sms.api.sinch.com\n    at Function.AxiosError.from (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:725:14)\n    at RedirectableRequest.handleRequestError (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:2467:25)\n    at RedirectableRequest.emit (node:events:520:28)\n    at ClientRequest.eventHandlers.<computed> (E:\\Projects\\servers\\ahub-api\\node_modules\\follow-redirects\\index.js:14:24)\n    at ClientRequest.emit (node:events:520:28)\n    at TLSSocket.socketErrorListener (node:_http_client:442:9)\n    at TLSSocket.emit (node:events:520:28)\n    at emitErrorNT (node:internal/streams/destroy:157:8)\n    at emitErrorCloseNT (node:internal/streams/destroy:122:3)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)","config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{"Blob":null},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json","Authorization":"Bearer d0f03e6c80df4e97b74feda4ac1d092f","User-Agent":"axios/1.1.3","Content-Length":"93","Accept-Encoding":"gzip, deflate, br"},"method":"post","url":"https://us.sms.api.sinch.com/xms/v1/e0c81087c4a5433394bf1607b2c5a86a/batches","data":"{\"body\":\"{\\\"from\\\":\\\"+2348034074748\\\",\\\"to\\\":[\\\"+2348034074748\\\"],\\\"body\\\":\\\"testing otp\\\"}\"}"},"code":"EAI_AGAIN","status":null}  😠
+AHUB API:ERROR [Nov-19-2022 02:25:12] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 02:30:02] Error creating Patron : {"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:1268:12)\n    at IncomingMessage.handleStreamEnd (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:2446:11)\n    at IncomingMessage.emit (node:events:532:35)\n    at endReadableNT (node:internal/streams/readable:1346:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)","config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{"Blob":null},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json","Authorization":"Bearer d0f03e6c80df4e97b74feda4ac1d092f","User-Agent":"axios/1.1.3","Content-Length":"108","Accept-Encoding":"gzip, deflate, br"},"method":"post","url":"https://us.sms.api.sinch.com/xms/v1/e0c81087c4a5433394bf1607b2c5a86a/batches","data":"{\"body\":\"{\\\"from\\\":\\\"+2348034074748\\\",\\\"to\\\":[\\\"+2348034074748\\\"],\\\"body\\\":\\\"testing otp[object Object]\\\"}\"}"},"code":"ERR_BAD_REQUEST","status":400}  😠
+AHUB API:ERROR [Nov-19-2022 02:32:19] Error creating Patron : {"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:1268:12)\n    at IncomingMessage.handleStreamEnd (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:2446:11)\n    at IncomingMessage.emit (node:events:532:35)\n    at endReadableNT (node:internal/streams/readable:1346:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)","config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{"Blob":null},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json","Authorization":"Bearer d0f03e6c80df4e97b74feda4ac1d092f","User-Agent":"axios/1.1.3","Content-Length":"108","Accept-Encoding":"gzip, deflate, br"},"method":"post","url":"https://us.sms.api.sinch.com/xms/v1/e0c81087c4a5433394bf1607b2c5a86a/batches","data":"{\"body\":\"{\\\"from\\\":\\\"+2348034074748\\\",\\\"to\\\":[\\\"+2348034074749\\\"],\\\"body\\\":\\\"testing otp[object Object]\\\"}\"}"},"code":"ERR_BAD_REQUEST","status":400}  😠
+AHUB API:ERROR [Nov-19-2022 02:35:35] Error creating Patron : {"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:1268:12)\n    at IncomingMessage.handleStreamEnd (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:2446:11)\n    at IncomingMessage.emit (node:events:532:35)\n    at endReadableNT (node:internal/streams/readable:1346:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)","config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{"Blob":null},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json","Authorization":"Bearer d0f03e6c80df4e97b74feda4ac1d092f","User-Agent":"axios/1.1.3","Content-Length":"108","Accept-Encoding":"gzip, deflate, br"},"method":"post","url":"https://us.sms.api.sinch.com/xms/v1/e0c81087c4a5433394bf1607b2c5a86a/batches","data":"{\"body\":\"{\\\"from\\\":\\\"+2348034074748\\\",\\\"to\\\":[\\\"+2348034074749\\\"],\\\"body\\\":\\\"testing otp[object Object]\\\"}\"}"},"code":"ERR_BAD_REQUEST","status":400}  😠
+AHUB API:ERROR [Nov-19-2022 02:37:22] Error creating Patron : {"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:1268:12)\n    at IncomingMessage.handleStreamEnd (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:2446:11)\n    at IncomingMessage.emit (node:events:532:35)\n    at endReadableNT (node:internal/streams/readable:1346:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)","config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{"Blob":null},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json","Authorization":"Bearer d0f03e6c80df4e97b74feda4ac1d092f","User-Agent":"axios/1.1.3","Content-Length":"108","Accept-Encoding":"gzip, deflate, br"},"method":"post","url":"https://us.sms.api.sinch.com/xms/v1/e0c81087c4a5433394bf1607b2c5a86a/batches","data":"{\"body\":\"{\\\"from\\\":\\\"+2348034074748\\\",\\\"to\\\":[\\\"+2348034074749\\\"],\\\"body\\\":\\\"testing otp[object Object]\\\"}\"}"},"code":"ERR_BAD_REQUEST","status":400}  😠
+AHUB API:ERROR [Nov-19-2022 02:53:06] Error creating Patron : {"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:1268:12)\n    at IncomingMessage.handleStreamEnd (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:2446:11)\n    at IncomingMessage.emit (node:events:532:35)\n    at endReadableNT (node:internal/streams/readable:1346:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)","config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{"Blob":null},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json","Authorization":"Bearer d0f03e6c80df4e97b74feda4ac1d092f","User-Agent":"axios/1.1.3","Content-Length":"93","Accept-Encoding":"gzip, deflate, br"},"method":"post","url":"https://us.sms.api.sinch.com/xms/v1/e0c81087c4a5433394bf1607b2c5a86a/batches","data":"{\"body\":{\"from\":\"+2348034074748\",\"to\":[\"+2348034074748\"],\"body\":\"your OTP [object Promise]\"}}"},"code":"ERR_BAD_REQUEST","status":400}  😠
+AHUB API:ERROR [Nov-19-2022 02:54:53] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-19-2022 02:58:52] Error creating Patron : {}  😠
+AHUB API:ERROR [Nov-19-2022 03:01:43] Error creating Patron : {}  😠
+AHUB API:ERROR [Nov-19-2022 03:04:12] Error creating Patron : {}  😠

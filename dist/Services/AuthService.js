@@ -39,7 +39,6 @@ class AuthService {
                             //     error.message = 'Unauthorized access.';
                             //     reject(error);
                             //   }
-                            user.password = null;
                             const token = yield Libs_1.Authorization.getJwtToken(user.id);
                             resolve({ user, token });
                         }

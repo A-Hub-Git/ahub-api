@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Auth = exports.Role = exports.User = void 0;
-const user_1 = __importDefault(require("./user"));
-exports.User = user_1.default;
+const UserRoute_1 = __importDefault(require("./UserRoute"));
+exports.User = UserRoute_1.default;
 const role_1 = __importDefault(require("./role"));
 exports.Role = role_1.default;
-const auth_1 = __importDefault(require("./auth"));
-exports.Auth = auth_1.default;
+const AuthRoute_1 = __importDefault(require("./AuthRoute"));
+exports.Auth = AuthRoute_1.default;
 //# sourceMappingURL=index.js.map

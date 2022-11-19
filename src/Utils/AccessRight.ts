@@ -6,12 +6,9 @@ enum AccessRight {
   DELETE
 }
 
-const roles: any = async () =>
-  (await Prisma.role.findMany()).map(role => role.id);
-
 enum ACL_ROLES {
-  ARTISAN = roles[0].id,
-  PATRON = roles[1].id
+  PATRON = 1,
+  ARTISAN = 2
 }
 
 export {ACL_ROLES, AccessRight};

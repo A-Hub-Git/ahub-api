@@ -3,11 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Redis = exports.Authorization = exports.Logger = void 0;
+exports.RedisClient = exports.Authorization = exports.Logger = void 0;
 const Logger_1 = __importDefault(require("./Logger"));
 exports.Logger = Logger_1.default;
 const Authorization_1 = __importDefault(require("./Authorization"));
 exports.Authorization = Authorization_1.default;
 const redis_1 = __importDefault(require("./redis"));
-exports.Redis = redis_1.default;
+exports.RedisClient = redis_1.default;
 //# sourceMappingURL=index.js.map

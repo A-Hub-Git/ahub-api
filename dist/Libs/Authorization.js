@@ -24,7 +24,7 @@ dotenv_1.default.config();
 class Authorization {
     static cookieToken(user, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const token = this.getJwtToken(user.id);
+            const token = yield this.getJwtToken(user);
             const options = {
                 expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
                 httpOnly: true
@@ -32,8 +32,7 @@ class Authorization {
             user.password = '';
             res.status(200).cookie('token', token, options).json({
                 message: 'Login Successful.',
-                token,
-                user
+                data: { user, token }
             });
         });
     }

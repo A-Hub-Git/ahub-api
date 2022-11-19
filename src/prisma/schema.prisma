@@ -27,16 +27,17 @@ enum ROLE {
 
 model Role {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
-  name        ROLE   @unique
+  roleId      Int    @unique
+  name        String
   description String
   users       User[]
 }
 
 model User {
-  id                String            @id @default(auto()) @map("_id") @db.ObjectId
-  roleId            String
+  id                String              @id @default(auto()) @map("_id") @db.ObjectId
+  roleId            Int
   full_name         String
-  email             String            @unique
+  email             String              @unique
   phone             String
   password          String
   gender            Gender?
@@ -45,5 +46,16 @@ model User {
   dob               DateTime?
   location          Json?
   artisanId         String?
-  Role              Role              @relation(fields: [roleId], references: [id])
+  Role              Role                @relation(fields: [roleId], references: [roleId])
+  token             VerificationToken[]
+}
+
+model VerificationToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String
+  type       String?
+  token      String
+  request_ip String?
+  expires_at DateTime
+  User       User     @relation(fields: [userId], references: [id])
 }

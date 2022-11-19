@@ -9,8 +9,8 @@ import BaseRequestHandle from '../Server/BaseRequestHandle';
 
 dotenv.config();
 export default class Authorization {
-  static async cookieToken(user: User, res: Response) {
-    const token = this.getJwtToken(user.id);
+  static async cookieToken(user: User | any, res: Response) {
+    const token = await this.getJwtToken(user);
     const options = {
       expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
       httpOnly: true
@@ -19,13 +19,11 @@ export default class Authorization {
 
     res.status(200).cookie('token', token, options).json({
       message: 'Login Successful.',
-      token,
-      user
+      data: {user, token}
     });
   }
   static VerifyUserToken =
-    (roleIds: string[]) =>
-    (req: Request, res: Response, next: NextFunction) => {
+    (roleIds: any[]) => (req: Request, res: Response, next: NextFunction) => {
       try {
         const token = req.headers.authorization?.split(' ')[1];
         jwt.verify(
@@ -76,7 +74,7 @@ export default class Authorization {
   static async getJwtToken(user: any) {
     return jwt.sign({user}, JWT_SECRET, {expiresIn: '1 day'});
   }
-  static async createHash(hash: string) {
+  static async createHash(hash: any) {
     return bcrypt.hashSync(hash, 10);
   }
   static async compareHash(value: string, hash: string) {

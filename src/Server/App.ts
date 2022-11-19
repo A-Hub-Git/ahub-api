@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser';
 import {Logger} from '../Libs';
 import {User, Role, Auth} from '../Routes';
 import {Prisma} from '../prisma';
-import Redis from '../Libs/redis';
+import RedisClient from '../Libs/redis';
 
 const app: Express = express();
 
@@ -33,7 +33,7 @@ async function main() {
 main()
   .then(async () => {
     await Prisma.$disconnect();
-    //await Redis.connect();
+    //await RedisClient.connect();
     Logger.info('Database Connected!!!');
   })
   .catch(async e => {

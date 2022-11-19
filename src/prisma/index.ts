@@ -1,4 +1,4 @@
-import {PrismaClient, User, Role} from '@prisma/client';
+import {PrismaClient, User, Role, VerificationToken} from '@prisma/client';
 import {Logger} from '../Libs';
 const Prisma = new PrismaClient();
 Prisma.$use(async (params, next) => {
@@ -10,4 +10,4 @@ Prisma.$use(async (params, next) => {
   );
   return result;
 });
-export {Prisma, User, Role};
+export {Prisma, User, Role, VerificationToken};
