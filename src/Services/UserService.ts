@@ -1,6 +1,5 @@
-import Cache from '../Utils/chache';
+import Cache from '../Utils/BaseCache';
 import {Logger} from '../Libs';
-import Redis from '../Libs/redis';
 import {Prisma, User, Role} from '../prisma';
 import CommunicationService from './CommunicationService';
 

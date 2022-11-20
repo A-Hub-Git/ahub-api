@@ -1,4 +1,4 @@
-import {HTTP_CODES, ResponseMessage} from '../Utils/ResponseCode';
+import {HTTP_CODES, ResponseMessage} from '../Utils/Enum';
 import express, {Express, Request, Response} from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -19,28 +19,26 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.enable('trust proxy');
 
-async function main() {
+async function connectDb() {
   // Connect the client
-  await Prisma.$connect();
 
-  app.use('/api/v1/users', User);
-  app.use('/api/v1/roles', Role);
-  app.use('/api/v1/auth', Auth);
+  try {
+    await Prisma.$connect();
+    Logger.info('Database Connected!!!');
+    app.use('/api/v1/users', User);
+    app.use('/api/v1/roles', Role);
+    app.use('/api/v1/auth', Auth);
+  } catch (e) {
+    await Prisma.$disconnect();
+    Logger.error(`Error Connecting to Database: ${e}`);
+    process.exit(1);
+  }
 
   //routes
 }
 
-main()
-  .then(async () => {
-    await Prisma.$disconnect();
-    //await RedisClient.connect();
-    Logger.info('Database Connected!!!');
-  })
-  .catch(async e => {
-    await Prisma.$disconnect();
-    Logger.error(`Error Connecting to Database: ${e}`);
-    process.exit(1);
-  });
+connectDb();
+
 app.get('/', (req: Request, res: Response) => {
   try {
     res.status(HTTP_CODES.OK).json('Welcome to A-hub API!!!');

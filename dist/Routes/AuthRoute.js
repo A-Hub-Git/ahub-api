@@ -9,6 +9,7 @@ const Router = express_1.default.Router();
 class AuthRoute {
     post() {
         Router.post('/login', Controllers_1.AuthController.signIn);
+        Router.post('/resend-otp/:user_id', Controllers_1.AuthController.resendOtp);
     }
 }
 new AuthRoute().post();

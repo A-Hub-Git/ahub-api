@@ -1,10 +1,13 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
-const Libs_1 = require("../Libs");
+const Authorization_1 = __importDefault(require("../Authorization/Authorization"));
 const Utils_1 = require("../Utils");
 const { ARTISAN, PATRON } = Utils_1.ACL_ROLES;
-class AuthMiddleware extends Libs_1.Authorization {
+class AuthMiddleware extends Authorization_1.default {
 }
 exports.default = AuthMiddleware;
 _a = AuthMiddleware;

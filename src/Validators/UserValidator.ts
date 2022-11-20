@@ -1,8 +1,8 @@
-import {HTTP_CODES} from './../Utils/ResponseCode';
+import {HTTP_CODES} from '../Utils/Enum';
 import BaseValidator from './BaseValidator';
 import {Prisma, User} from '../prisma';
 import {Response} from 'express';
-import BaseRequestHandle from '../Server/BaseRequestHandle';
+import BaseRequestHandle from '../Utils/BaseRequestHandle';
 
 export default class UserValidator extends BaseValidator {
   static async createAccount(data: User, res: Response, cb: () => any) {
@@ -23,23 +23,4 @@ export default class UserValidator extends BaseValidator {
     }
     this.validator(data, rules, res, cb);
   }
-  //   static createAccount = () => {
-  //     return [
-  //       body('full_name').isAlpha().normalizeEmail().notEmpty(),
-  //       body('email').isEmail().notEmpty(),
-  //       body('phone', 'Invalid mobile number.')
-  //         .escape()
-  //         .isLength({min: 6})
-  //         .exists({checkFalsy: true})
-  //         .matches(/^([0|+[0-9]{1,5})?([7-9][0-9]{9})$/)
-  //         .notEmpty(),
-  //       body('password').isAlphanumeric().notEmpty().isStrongPassword({
-  //         minLength: 6,
-  //         minLowercase: 1,
-  //         minUppercase: 1,
-  //         minNumbers: 1,
-  //         minSymbols: 1
-  //       })
-  //     ];
-  //   };
 }

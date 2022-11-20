@@ -9499,3 +9499,62 @@ AHUB API:ERROR [Nov-19-2022 02:54:53] Error creating Patron : {"clientVersion":"
 AHUB API:ERROR [Nov-19-2022 02:58:52] Error creating Patron : {}  😠
 AHUB API:ERROR [Nov-19-2022 03:01:43] Error creating Patron : {}  😠
 AHUB API:ERROR [Nov-19-2022 03:04:12] Error creating Patron : {}  😠
+AHUB API:ERROR [Nov-19-2022 17:06:18] Error Connecting to Database: Error: Error in connector: Error creating a database connection. (An error occurred during DNS resolution: proto error: io error: A socket operation was attempted to an unreachable network. (os error 10051))
+AHUB API:ERROR [Nov-19-2022 17:09:16] Error Connecting to Database: Error: Error in connector: Error creating a database connection. (An error occurred during DNS resolution: proto error: io error: A socket operation was attempted to an unreachable network. (os error 10051))
+AHUB API:ERROR [Nov-19-2022 17:09:37] Error Connecting to Database: Error: Error in connector: Error creating a database connection. (An error occurred during DNS resolution: proto error: io error: A socket operation was attempted to an unreachable network. (os error 10051))
+AHUB API:ERROR [Nov-20-2022 16:21:21] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 16:21:43] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 16:21:52] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 16:22:58] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 16:24:53] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 16:27:19] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 16:56:15] Login failed. Please try again later.: Error: 
+Invalid `prisma_1.Prisma.user.findUnique()` invocation in
+E:\Projects\servers\ahub-api\dist\Controllers\AuthController.js:31:61
+
+  28 //await Cache('sign in', async () => {
+  29 try {
+  30     Libs_1.Logger.info('Signing In.....');
+→ 31     const user = yield prisma_1.Prisma.user.findUnique(
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: RawDatabaseError { code: "unknown", message: "An existing connection was forcibly closed by the remote host. (os error 10054)" } })
+AHUB API:ERROR [Nov-20-2022 17:28:20] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 17:29:41] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 17:31:09] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 17:32:08] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 17:32:36] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 17:33:42] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 17:36:21] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 17:37:09] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 17:38:28] Error creating Patron : {"clientVersion":"4.6.1"}  😠
+AHUB API:ERROR [Nov-20-2022 17:57:30] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 18:08:58] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:14:47] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:16:45] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:31:34] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:35:56] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:42:38] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:44:15] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:45:18] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:46:49] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:50:23] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:51:37] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:52:49] Error generating OTP: {"clientVersion":"4.6.1"}
+AHUB API:ERROR [Nov-20-2022 18:57:31] OTP Error: {"message":"getaddrinfo ENOTFOUND us.sms.api.sinch.com","name":"Error","stack":"Error: getaddrinfo ENOTFOUND us.sms.api.sinch.com\n    at Function.AxiosError.from (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:725:14)\n    at RedirectableRequest.handleRequestError (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:2467:25)\n    at RedirectableRequest.emit (node:events:520:28)\n    at ClientRequest.eventHandlers.<computed> (E:\\Projects\\servers\\ahub-api\\node_modules\\follow-redirects\\index.js:14:24)\n    at ClientRequest.emit (node:events:520:28)\n    at TLSSocket.socketErrorListener (node:_http_client:442:9)\n    at TLSSocket.emit (node:events:520:28)\n    at emitErrorNT (node:internal/streams/destroy:157:8)\n    at emitErrorCloseNT (node:internal/streams/destroy:122:3)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)","config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{"Blob":null},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json","Authorization":"Bearer d0f03e6c80df4e97b74feda4ac1d092f","User-Agent":"axios/1.1.3","Content-Length":"84","Accept-Encoding":"gzip, deflate, br"},"method":"post","url":"https://us.sms.api.sinch.com/xms/v1/e0c81087c4a5433394bf1607b2c5a86a/batches","data":"{\"from\":\"+2348034074748\",\"to\":[\"+2348034074748\"],\"body\":\"your OTP [object Promise]\"}"},"code":"ENOTFOUND","status":null}
+AHUB API:ERROR [Nov-20-2022 18:59:00] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 19:00:14] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 19:32:02] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 19:33:45] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 19:37:34] Login failed. Please try again later.: Error: Invalid login credentials
+AHUB API:ERROR [Nov-20-2022 19:52:17] OTP Error: {"message":"getaddrinfo ENOTFOUND us.sms.api.sinch.com","name":"Error","stack":"Error: getaddrinfo ENOTFOUND us.sms.api.sinch.com\n    at Function.AxiosError.from (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:725:14)\n    at RedirectableRequest.handleRequestError (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:2467:25)\n    at RedirectableRequest.emit (node:events:520:28)\n    at ClientRequest.eventHandlers.<computed> (E:\\Projects\\servers\\ahub-api\\node_modules\\follow-redirects\\index.js:14:24)\n    at ClientRequest.emit (node:events:520:28)\n    at TLSSocket.socketErrorListener (node:_http_client:442:9)\n    at TLSSocket.emit (node:events:520:28)\n    at emitErrorNT (node:internal/streams/destroy:157:8)\n    at emitErrorCloseNT (node:internal/streams/destroy:122:3)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)","config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{"Blob":null},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json","Authorization":"Bearer d0f03e6c80df4e97b74feda4ac1d092f","User-Agent":"axios/1.1.3","Content-Length":"84","Accept-Encoding":"gzip, deflate, br"},"method":"post","url":"https://us.sms.api.sinch.com/xms/v1/e0c81087c4a5433394bf1607b2c5a86a/batches","data":"{\"from\":\"+2348034074748\",\"to\":[\"+2348034074748\"],\"body\":\"your OTP [object Promise]\"}"},"code":"ENOTFOUND","status":null}
+AHUB API:ERROR [Nov-20-2022 19:52:17] Error creating Patron : {"message":"getaddrinfo ENOTFOUND us.sms.api.sinch.com","name":"Error","stack":"Error: getaddrinfo ENOTFOUND us.sms.api.sinch.com\n    at Function.AxiosError.from (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:725:14)\n    at RedirectableRequest.handleRequestError (E:\\Projects\\servers\\ahub-api\\node_modules\\axios\\dist\\node\\axios.cjs:2467:25)\n    at RedirectableRequest.emit (node:events:520:28)\n    at ClientRequest.eventHandlers.<computed> (E:\\Projects\\servers\\ahub-api\\node_modules\\follow-redirects\\index.js:14:24)\n    at ClientRequest.emit (node:events:520:28)\n    at TLSSocket.socketErrorListener (node:_http_client:442:9)\n    at TLSSocket.emit (node:events:520:28)\n    at emitErrorNT (node:internal/streams/destroy:157:8)\n    at emitErrorCloseNT (node:internal/streams/destroy:122:3)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)","config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{"Blob":null},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json","Authorization":"Bearer d0f03e6c80df4e97b74feda4ac1d092f","User-Agent":"axios/1.1.3","Content-Length":"84","Accept-Encoding":"gzip, deflate, br"},"method":"post","url":"https://us.sms.api.sinch.com/xms/v1/e0c81087c4a5433394bf1607b2c5a86a/batches","data":"{\"from\":\"+2348034074748\",\"to\":[\"+2348034074748\"],\"body\":\"your OTP [object Promise]\"}"},"code":"ENOTFOUND","status":null}  😠
+AHUB API:ERROR [Nov-20-2022 20:08:02] Login failed. Please try again later.: Error: 
+Invalid `prisma_1.Prisma.user.findUnique()` invocation in
+E:\Projects\servers\ahub-api\dist\Controllers\AuthController.js:31:61
+
+  28 //await Cache('sign in', async () => {
+  29 try {
+  30     Libs_1.Logger.info('Signing In.....');
+→ 31     const user = yield prisma_1.Prisma.user.findUnique(
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: RawDatabaseError { code: "unknown", message: "No such host is known. (os error 11001)" } })

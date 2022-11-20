@@ -6,6 +6,7 @@ const Router = router.Router();
 class AuthRoute {
   post() {
     Router.post('/login', AuthController.signIn);
+    Router.post('/resend-otp/:user_id', AuthController.resendOtp);
   }
 }
 

@@ -1,13 +1,9 @@
 import randomstring from 'randomstring';
 export default class String {
-  private randomstring;
-  constructor() {
-    this.randomstring = randomstring.generate;
-  }
   static otp() {
     const otp = randomstring.generate({
       length: 4,
-      charset: 'number'
+      charset: 'numeric'
     });
     return otp;
   }

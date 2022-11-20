@@ -28,3 +28,8 @@ export enum HTTP_METHODS {
   DELETE = 'DELETE',
   OPTIONS = 'OPTIONS'
 }
+
+export enum ACL_ROLES {
+  PATRON = 1,
+  ARTISAN = 2
+}

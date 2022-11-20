@@ -1,4 +1,4 @@
-import {Authorization} from '../Libs';
+import Authorization from '../Authorization/Authorization';
 import {ACL_ROLES} from '../Utils';
 
 const {ARTISAN, PATRON} = ACL_ROLES;

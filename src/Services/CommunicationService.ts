@@ -1,7 +1,8 @@
 import moment from 'moment';
 import Axios from 'axios';
 import {Prisma, VerificationToken} from '../prisma';
-import {Authorization, Logger} from '../Libs';
+import Authorization from '../Authorization/Authorization';
+import {Logger} from '../Libs';
 import String from '../Utils/String';
 import {sinchConfig} from '../config';
 
@@ -12,7 +13,7 @@ export default class CommunicationService extends Authorization {
       const token = await this.createHash(String.otp());
       try {
         const exist = await Prisma.verificationToken.findFirst({
-          where: {userId}
+          where: {userId} as VerificationToken
         });
         if (!exist) {
           const created = await Prisma.verificationToken.create({
@@ -25,15 +26,16 @@ export default class CommunicationService extends Authorization {
           return resolve(created);
         }
         const updated = await Prisma.verificationToken.update({
-          where: {userId} as VerificationToken,
+          where: {id: exist.id} as VerificationToken,
           data: {
             expires_at,
             token
           }
         });
-        return resolve(updated);
+        resolve(updated);
       } catch (error) {
-        reject(JSON.stringify(error));
+        Logger.error(`Error generating OTP: ${JSON.stringify(error)}`);
+        return reject(error);
       }
     });
   }

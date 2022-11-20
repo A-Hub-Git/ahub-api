@@ -15,10 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const moment_1 = __importDefault(require("moment"));
 const axios_1 = __importDefault(require("axios"));
 const prisma_1 = require("../prisma");
+const Authorization_1 = __importDefault(require("../Authorization/Authorization"));
 const Libs_1 = require("../Libs");
 const String_1 = __importDefault(require("../Utils/String"));
 const config_1 = require("../config");
-class CommunicationService extends Libs_1.Authorization {
+class CommunicationService extends Authorization_1.default {
     static generateOtp(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
@@ -39,16 +40,17 @@ class CommunicationService extends Libs_1.Authorization {
                         return resolve(created);
                     }
                     const updated = yield prisma_1.Prisma.verificationToken.update({
-                        where: { userId },
+                        where: { id: exist.id },
                         data: {
                             expires_at,
                             token
                         }
                     });
-                    return resolve(updated);
+                    resolve(updated);
                 }
                 catch (error) {
-                    reject(JSON.stringify(error));
+                    Libs_1.Logger.error(`Error generating OTP: ${JSON.stringify(error)}`);
+                    return reject(error);
                 }
             }));
         });

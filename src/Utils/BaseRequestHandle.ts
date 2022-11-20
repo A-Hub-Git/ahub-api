@@ -1,5 +1,5 @@
 import {Response} from 'express';
-import {HTTP_CODES, ResponseStatus} from '../Utils';
+import {HTTP_CODES, ResponseStatus} from '.';
 
 class BaseRequestHandler {
   protected statusCode: HTTP_CODES;

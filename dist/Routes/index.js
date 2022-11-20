@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Auth = exports.Role = exports.User = void 0;
 const UserRoute_1 = __importDefault(require("./UserRoute"));
 exports.User = UserRoute_1.default;
-const role_1 = __importDefault(require("./role"));
-exports.Role = role_1.default;
+const Role_1 = __importDefault(require("./Role"));
+exports.Role = Role_1.default;
 const AuthRoute_1 = __importDefault(require("./AuthRoute"));
 exports.Auth = AuthRoute_1.default;
 //# sourceMappingURL=index.js.map

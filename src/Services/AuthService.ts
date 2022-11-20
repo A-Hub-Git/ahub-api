@@ -1,6 +1,7 @@
 import bcrypt from 'bcryptjs';
+import {Response} from 'express';
 import {User} from '../prisma';
-import {Authorization} from '../Libs';
+import Authorization from '../Authorization/Authorization';
 
 export default class AuthService {
   static async login(data: User | any, _password: string) {
@@ -10,23 +11,17 @@ export default class AuthService {
       if (data) {
         const {password, ...user} = data;
         if (bcrypt.compareSync(_password, password)) {
-          //   if (roleId && user.roleId != roleId) {
-          //     error.status = 401;
-          //     error.message = 'Unauthorized access.';
-          //     reject(error);
-          //   }
-
-          const token = await Authorization.getJwtToken(user.id);
-          resolve({user, token});
+          user.password = '';
+          return resolve(user);
         }
 
         error.status = 401;
         error.message = 'Invalid login credentials';
-        reject(error);
+        return reject(error);
       } else {
         error.status = 401;
         error.message = 'Invalid login credentials';
-        reject(error);
+        return reject(error);
       }
     });
   }

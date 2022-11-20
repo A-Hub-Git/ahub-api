@@ -24,7 +24,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
-const Libs_1 = require("../Libs");
 class AuthService {
     static login(data, _password) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -34,22 +33,17 @@ class AuthService {
                     if (data) {
                         const { password } = data, user = __rest(data, ["password"]);
                         if (bcryptjs_1.default.compareSync(_password, password)) {
-                            //   if (roleId && user.roleId != roleId) {
-                            //     error.status = 401;
-                            //     error.message = 'Unauthorized access.';
-                            //     reject(error);
-                            //   }
-                            const token = yield Libs_1.Authorization.getJwtToken(user.id);
-                            resolve({ user, token });
+                            user.password = '';
+                            return resolve(user);
                         }
                         error.status = 401;
                         error.message = 'Invalid login credentials';
-                        reject(error);
+                        return reject(error);
                     }
                     else {
                         error.status = 401;
                         error.message = 'Invalid login credentials';
-                        reject(error);
+                        return reject(error);
                     }
                 });
             });

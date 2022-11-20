@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = "mongodb+srv://ahub_username:ahub_password@cluster0.qutaxg0.mongodb.net/ahub-db?ssl=true&connectTimeoutMS=5000&maxPoolSize=50"
+  url      = env("DATABASE_URL")
 }
 
 enum Gender {

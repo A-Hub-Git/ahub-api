@@ -20,7 +20,15 @@ class AuthValidator extends BaseValidator_1.default {
                 email: 'required|email',
                 password: 'required|min:6'
             };
-            this.validator(data, rules, res, cb);
+            yield this.validator(data, rules, res, cb);
+        });
+    }
+    static resendOtp(userId, res, cb) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const rule = {
+                user_id: 'require|string'
+            };
+            yield this.validator(userId, rule, res, cb);
         });
     }
 }

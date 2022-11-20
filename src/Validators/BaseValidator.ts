@@ -1,11 +1,11 @@
-import {HTTP_CODES} from './../Utils/ResponseCode';
+import {HTTP_CODES} from '../Utils/Enum';
 import {Request, Response, NextFunction} from 'express';
 import {validationResult, query} from 'express-validator';
-import BaseRequestHandle from '../Server/BaseRequestHandle';
+import BaseRequestHandle from '../Utils/BaseRequestHandle';
 import Validator from 'validatorjs';
 import {User} from '../prisma';
 export default class BaseValidator {
-  static async validator(data: User, rules: any, res: Response, cb: () => any) {
+  static async validator(data: any, rules: any, res: Response, cb: () => any) {
     const validator = new Validator(data, rules);
     if (validator.fails()) {
       BaseRequestHandle.setError(
@@ -16,7 +16,7 @@ export default class BaseValidator {
     }
     await cb();
   }
-  static validate(req: Request, res: Response, next: NextFunction) {
+  static async validate(req: Request, res: Response, next: NextFunction) {
     const error = validationResult(req);
     if (error.isEmpty()) {
       return next();

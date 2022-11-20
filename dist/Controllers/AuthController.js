@@ -13,12 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const prisma_1 = require("../prisma");
-const BaseRequestHandle_1 = __importDefault(require("../Server/BaseRequestHandle"));
+const BaseRequestHandle_1 = __importDefault(require("../Utils/BaseRequestHandle"));
 const AuthService_1 = __importDefault(require("../Services/AuthService"));
+const Authorization_1 = __importDefault(require("../Authorization/Authorization"));
 const Libs_1 = require("../Libs");
 const AuthValidator_1 = __importDefault(require("../Validators/AuthValidator"));
-const Constant_1 = __importDefault(require("../Constant"));
-class AuthController extends Constant_1.default {
+const Utils_1 = require("../Utils");
+const CommunicationService_1 = __importDefault(require("../Services/CommunicationService"));
+class AuthController extends CommunicationService_1.default {
     static signIn(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { email, password } = req.body;
@@ -30,10 +32,7 @@ class AuthController extends Constant_1.default {
                         where: { email }
                     });
                     yield AuthService_1.default.login(user, password.trim());
-                    user.password = '';
-                    Libs_1.Authorization.cookieToken(user, res);
-                    // BaseRequestHandle.setSuccess(200, 'Login Successfully...', data);
-                    // return BaseRequestHandle.send(res);
+                    yield Authorization_1.default.cookieToken(user, res);
                 }
                 catch (error) {
                     Libs_1.Logger.error(`Login failed. Please try again later.: ${error}`);
@@ -45,6 +44,24 @@ class AuthController extends Constant_1.default {
                 }
             }));
             // });
+        });
+    }
+    static resendOtp(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield AuthValidator_1.default.resendOtp(req.params.user_id, res, () => __awaiter(this, void 0, void 0, function* () {
+                try {
+                    const user = yield prisma_1.Prisma.user.findFirst({
+                        where: { id: req.params.user_id }
+                    });
+                    yield CommunicationService_1.default.sendSms(user === null || user === void 0 ? void 0 : user.phone, user === null || user === void 0 ? void 0 : user.id);
+                    BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'otp sent');
+                    return BaseRequestHandle_1.default.send(res);
+                }
+                catch (error) {
+                    BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.INTERNAL_SERVER_ERROR, `Internal Server Error. Contact Support.. : ${error}`);
+                    return BaseRequestHandle_1.default.send(res);
+                }
+            }));
         });
     }
 }

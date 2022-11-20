@@ -1,9 +1,10 @@
 import {Prisma} from '../prisma';
 import {Request, Response} from 'express';
-import {HTTP_CODES, ResponseMessage} from './../Utils/ResponseCode';
-import BaseRequestHandle from '../Server/BaseRequestHandle';
+import {HTTP_CODES, ResponseMessage} from '../Utils/Enum';
+import BaseRequestHandle from '../Utils/BaseRequestHandle';
 import {UserService} from '../Services';
-import {Authorization, Logger} from '../Libs';
+import Authorization from '../Authorization/Authorization';
+import {Logger} from '../Libs';
 import {UserValidator} from '../Validators';
 import {ACL_ROLES} from '../Utils';
 
@@ -79,6 +80,7 @@ export default class UserController {
         data.roleId =
           data.role === 'Patron' ? ACL_ROLES.PATRON : ACL_ROLES.ARTISAN;
         delete data.role;
+        data.password = await Authorization.createHash(data.password);
         const createdUser = await UserService.create(data);
         Logger.info(`${user} Created Successfully😅`);
         BaseRequestHandle.setSuccess(

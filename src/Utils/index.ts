@@ -1,16 +1,17 @@
-import {AccessRight, ACL_ROLES} from './AccessRight';
 import {
   HTTP_CODES,
   HTTP_METHODS,
   ResponseStatus,
-  ResponseMessage
-} from './ResponseCode';
+  ResponseMessage,
+  ACL_ROLES
+} from './Enum';
+import Cache from './BaseCache';
 
 export {
-  ACL_ROLES,
-  AccessRight,
   HTTP_CODES,
   HTTP_METHODS,
   ResponseStatus,
-  ResponseMessage
+  ResponseMessage,
+  ACL_ROLES,
+  Cache
 };
