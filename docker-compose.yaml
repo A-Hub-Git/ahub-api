@@ -17,7 +17,8 @@ services:
 
 
   backend:
-    build: .
+    build:
+      context: .
     environment:
       - PORT=8080
     depends_on:
