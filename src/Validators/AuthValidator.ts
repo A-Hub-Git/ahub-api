@@ -9,10 +9,10 @@ export default class AuthValidator extends BaseValidator {
     };
     await this.validator(data, rules, res, cb);
   }
-  static async resendOtp(userId: any, res: Response, cb: () => any) {
+  static async verifyOtp(otp: any, res: Response, cb: () => any) {
     const rule = {
-      user_id: 'require|string'
+      otp: 'required|digits:4'
     };
-    await this.validator(userId, rule, res, cb);
+    await this.validator(otp, rule, res, cb);
   }
 }

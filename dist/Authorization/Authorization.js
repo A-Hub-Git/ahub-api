@@ -31,7 +31,7 @@ class Authorization {
             };
             user.password = '';
             user.token = token;
-            res.status(200).cookie('token', token, options).json({
+            res.status(200).json({
                 message: 'Login Successful.',
                 data: user
             });
@@ -42,15 +42,11 @@ class Authorization {
             return jsonwebtoken_1.default.sign({ user }, config_1.JWT_SECRET, { expiresIn: '1 day' });
         });
     }
-    static createHash(hash) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return bcryptjs_1.default.hashSync(hash, 10);
-        });
+    static createHash(value) {
+        return bcryptjs_1.default.hashSync(value, 10);
     }
     static compareHash(value, hash) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return bcryptjs_1.default.hashSync(value, hash);
-        });
+        return bcryptjs_1.default.compareSync(value, hash);
     }
 }
 exports.default = Authorization;
@@ -64,8 +60,8 @@ Authorization.VerifyUserToken = (roleIds) => (req, res, next) => {
                 BaseRequestHandle_1.default.setError(Enum_1.HTTP_CODES.UNAUTHORIZED, 'Unauthorized. Token Invalid');
                 return BaseRequestHandle_1.default.send(res);
             }
-            const user = yield prisma_1.Prisma.user.findUnique({
-                where: { id: payload.userId }
+            const user = yield prisma_1.Prisma.user.findFirst({
+                where: { id: payload.user.id }
             });
             if (!user) {
                 BaseRequestHandle_1.default.setError(Enum_1.HTTP_CODES.UNAUTHORIZED, 'Unauthorized. User does not exist in our system');
@@ -79,6 +75,7 @@ Authorization.VerifyUserToken = (roleIds) => (req, res, next) => {
                 return BaseRequestHandle_1.default.send(res);
             }
             req.user = user;
+            next();
         }));
     }
     catch (error) {

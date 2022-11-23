@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const prisma_1 = require("../prisma");
 const BaseRequestHandle_1 = __importDefault(require("../Utils/BaseRequestHandle"));
 const AuthService_1 = __importDefault(require("../Services/AuthService"));
-const Authorization_1 = __importDefault(require("../Authorization/Authorization"));
 const Libs_1 = require("../Libs");
 const AuthValidator_1 = __importDefault(require("../Validators/AuthValidator"));
 const Utils_1 = require("../Utils");
@@ -25,14 +24,17 @@ class AuthController extends CommunicationService_1.default {
         return __awaiter(this, void 0, void 0, function* () {
             const { email, password } = req.body;
             yield AuthValidator_1.default.login(req.body, res, () => __awaiter(this, void 0, void 0, function* () {
-                //await Cache('sign in', async () => {
                 try {
+                    //const data = await Cache.baseCache('login', async () => {
                     Libs_1.Logger.info('Signing In.....');
                     const user = yield prisma_1.Prisma.user.findUnique({
                         where: { email }
                     });
-                    yield AuthService_1.default.login(user, password.trim());
-                    yield Authorization_1.default.cookieToken(user, res);
+                    const data = yield AuthService_1.default.login(user, password.trim());
+                    BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'Login Successful.', data);
+                    return BaseRequestHandle_1.default.send(res);
+                    //});
+                    //return await Authorization.cookieToken(data, res);
                 }
                 catch (error) {
                     Libs_1.Logger.error(`Login failed. Please try again later.: ${error}`);
@@ -43,18 +45,36 @@ class AuthController extends CommunicationService_1.default {
                     return BaseRequestHandle_1.default.send(res);
                 }
             }));
-            // });
         });
     }
     static resendOtp(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield AuthValidator_1.default.resendOtp(req.params.user_id, res, () => __awaiter(this, void 0, void 0, function* () {
+            try {
+                const user = yield prisma_1.Prisma.user.findFirst({
+                    where: { id: req.params.user_id }
+                });
+                yield CommunicationService_1.default.sendSms(user === null || user === void 0 ? void 0 : user.phone, user === null || user === void 0 ? void 0 : user.id);
+                BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'otp sent');
+                return BaseRequestHandle_1.default.send(res);
+            }
+            catch (error) {
+                BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.INTERNAL_SERVER_ERROR, `Internal Server Error. Contact Support.. : ${error}`);
+                return BaseRequestHandle_1.default.send(res);
+            }
+        });
+    }
+    static verify_otp(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const otp = Number(req.params.otp);
+            const user = req.user;
+            yield AuthValidator_1.default.verifyOtp(req.params, res, () => __awaiter(this, void 0, void 0, function* () {
                 try {
-                    const user = yield prisma_1.Prisma.user.findFirst({
-                        where: { id: req.params.user_id }
-                    });
-                    yield CommunicationService_1.default.sendSms(user === null || user === void 0 ? void 0 : user.phone, user === null || user === void 0 ? void 0 : user.id);
-                    BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'otp sent');
+                    const valid = yield CommunicationService_1.default.verifyOtp(user.id, `${otp}`);
+                    if (!valid) {
+                        BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.BAD_REQUEST, 'Invalid or wrong otp.');
+                        return BaseRequestHandle_1.default.send(res);
+                    }
+                    BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'OTP Verified');
                     return BaseRequestHandle_1.default.send(res);
                 }
                 catch (error) {

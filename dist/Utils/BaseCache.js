@@ -14,7 +14,7 @@ class BaseCache {
     constructor() {
         this.EXPIRATION_TIME = 3600;
     }
-    baseCache(key, cb) {
+    static baseCache(key, cb) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             try {
                 yield Libs_1.RedisClient.get(key).then((data) => __awaiter(this, void 0, void 0, function* () {
@@ -22,10 +22,11 @@ class BaseCache {
                         Libs_1.Logger.info('CACHE HITS');
                         return resolve(JSON.parse(data));
                     }
-                    Libs_1.Logger.info('CACHE MISS');
                     const fresh_data = yield cb();
-                    Libs_1.RedisClient.setEx(key, this.EXPIRATION_TIME, JSON.stringify(fresh_data));
+                    Libs_1.RedisClient.setEx(key, 3600, JSON.stringify(fresh_data));
                     resolve(fresh_data);
+                    Libs_1.Logger.info('CACHE MISS');
+                    return;
                 }));
             }
             catch (error) {
@@ -35,5 +36,5 @@ class BaseCache {
         }));
     }
 }
-exports.default = new BaseCache().baseCache;
+exports.default = BaseCache;
 //# sourceMappingURL=BaseCache.js.map

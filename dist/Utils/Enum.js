@@ -34,7 +34,7 @@ var HTTP_METHODS;
 })(HTTP_METHODS = exports.HTTP_METHODS || (exports.HTTP_METHODS = {}));
 var ACL_ROLES;
 (function (ACL_ROLES) {
-    ACL_ROLES[ACL_ROLES["PATRON"] = 1] = "PATRON";
-    ACL_ROLES[ACL_ROLES["ARTISAN"] = 2] = "ARTISAN";
+    ACL_ROLES[ACL_ROLES["ARTISAN"] = 1] = "ARTISAN";
+    ACL_ROLES[ACL_ROLES["PATRON"] = 2] = "PATRON";
 })(ACL_ROLES = exports.ACL_ROLES || (exports.ACL_ROLES = {}));
 //# sourceMappingURL=Enum.js.map

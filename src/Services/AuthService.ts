@@ -12,7 +12,8 @@ export default class AuthService {
         const {password, ...user} = data;
         if (bcrypt.compareSync(_password, password)) {
           user.password = '';
-          return resolve(user);
+          const token = await Authorization.getJwtToken(user);
+          return resolve({user, token});
         }
 
         error.status = 401;

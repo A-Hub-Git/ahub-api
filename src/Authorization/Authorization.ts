@@ -17,7 +17,7 @@ export default class Authorization {
     };
     user.password = '';
     user.token = token;
-    res.status(200).cookie('token', token, options).json({
+    res.status(200).json({
       message: 'Login Successful.',
       data: user
     });
@@ -37,9 +37,10 @@ export default class Authorization {
               );
               return BaseRequestHandle.send(res);
             }
-            const user = await Prisma.user.findUnique({
-              where: {id: payload.userId}
+            const user = await Prisma.user.findFirst({
+              where: {id: payload.user.id}
             });
+
             if (!user) {
               BaseRequestHandle.setError(
                 HTTP_CODES.UNAUTHORIZED,
@@ -60,6 +61,7 @@ export default class Authorization {
               return BaseRequestHandle.send(res);
             }
             req.user = user;
+            next();
           }
         );
       } catch (error) {
@@ -74,10 +76,10 @@ export default class Authorization {
   static async getJwtToken(user: any) {
     return jwt.sign({user}, JWT_SECRET, {expiresIn: '1 day'});
   }
-  static async createHash(hash: any) {
-    return bcrypt.hashSync(hash, 10);
+  static createHash(value: any) {
+    return bcrypt.hashSync(value, 10);
   }
-  static async compareHash(value: string, hash: string) {
-    return bcrypt.hashSync(value, hash);
+  static compareHash(value: string, hash: string) {
+    return bcrypt.compareSync(value, hash);
   }
 }

@@ -34,6 +34,7 @@ function connectDb() {
         // Connect the client
         try {
             yield prisma_1.Prisma.$connect();
+            //await RedisClient.connect();
             Libs_1.Logger.info('Database Connected!!!');
             app.use('/api/v1/users', Routes_1.User);
             app.use('/api/v1/roles', Routes_1.Role);

@@ -24,6 +24,7 @@ async function connectDb() {
 
   try {
     await Prisma.$connect();
+    //await RedisClient.connect();
     Logger.info('Database Connected!!!');
     app.use('/api/v1/users', User);
     app.use('/api/v1/roles', Role);

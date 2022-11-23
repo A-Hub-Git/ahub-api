@@ -24,6 +24,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
+const Authorization_1 = __importDefault(require("../Authorization/Authorization"));
 class AuthService {
     static login(data, _password) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -34,7 +35,8 @@ class AuthService {
                         const { password } = data, user = __rest(data, ["password"]);
                         if (bcryptjs_1.default.compareSync(_password, password)) {
                             user.password = '';
-                            return resolve(user);
+                            const token = yield Authorization_1.default.getJwtToken(user);
+                            return resolve({ user, token });
                         }
                         error.status = 401;
                         error.message = 'Invalid login credentials';

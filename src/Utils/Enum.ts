@@ -30,6 +30,6 @@ export enum HTTP_METHODS {
 }
 
 export enum ACL_ROLES {
-  PATRON = 1,
-  ARTISAN = 2
+  ARTISAN = 1,
+  PATRON = 2
 }

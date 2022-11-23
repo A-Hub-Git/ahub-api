@@ -23,12 +23,12 @@ class AuthValidator extends BaseValidator_1.default {
             yield this.validator(data, rules, res, cb);
         });
     }
-    static resendOtp(userId, res, cb) {
+    static verifyOtp(otp, res, cb) {
         return __awaiter(this, void 0, void 0, function* () {
             const rule = {
-                user_id: 'require|string'
+                otp: 'required|digits:4'
             };
-            yield this.validator(userId, rule, res, cb);
+            yield this.validator(otp, rule, res, cb);
         });
     }
 }

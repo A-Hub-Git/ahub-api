@@ -10,7 +10,8 @@ export default class CommunicationService extends Authorization {
   static async generateOtp(userId: string) {
     return new Promise(async (resolve, reject) => {
       const expires_at = moment().add(10, 'm').toDate();
-      const token = await this.createHash(String.otp());
+      const token = this.createHash('1234');
+
       try {
         const exist = await Prisma.verificationToken.findFirst({
           where: {userId} as VerificationToken
@@ -25,6 +26,7 @@ export default class CommunicationService extends Authorization {
           });
           return resolve(created);
         }
+
         const updated = await Prisma.verificationToken.update({
           where: {id: exist.id} as VerificationToken,
           data: {
@@ -32,7 +34,7 @@ export default class CommunicationService extends Authorization {
             token
           }
         });
-        resolve(updated);
+        return resolve(updated);
       } catch (error) {
         Logger.error(`Error generating OTP: ${JSON.stringify(error)}`);
         return reject(error);
@@ -41,16 +43,22 @@ export default class CommunicationService extends Authorization {
   }
   static verifyOtp(userId: string, token: string) {
     return new Promise(async (resolve, reject) => {
-      const isOtp = await Prisma.verificationToken.findFirst({where: {userId}});
-
-      if (
-        isOtp &&
-        (await this.compareHash(token, isOtp.token)) &&
-        moment().isBefore(isOtp.expires_at)
-      ) {
-        return resolve(true);
+      const isOtp = await Prisma.verificationToken.findFirst({
+        where: {userId} as VerificationToken
+      });
+      console.log(isOtp?.expires_at);
+      try {
+        if (
+          isOtp &&
+          this.compareHash(token, isOtp.token) &&
+          moment().isBefore(isOtp.expires_at)
+        ) {
+          return resolve(true);
+        }
+        return resolve(false);
+      } catch (error) {
+        reject(error);
       }
-      return reject(new Error('Invalid or wrong otp.'));
     });
   }
 
@@ -73,7 +81,7 @@ export default class CommunicationService extends Authorization {
         Logger.info('OPT sent');
         resolve(response.data);
       } catch (error) {
-        Logger.error(`OTP Error: ${JSON.stringify(error)}`);
+        Logger.error(`OTP Error`);
         reject(error);
       }
     });
