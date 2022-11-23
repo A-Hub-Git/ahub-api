@@ -9,7 +9,7 @@ ARG NODE_ENV
 RUN if [ "$NODE_ENV" = "development" ]; \
     then npm install; \
     else npm install --only=production; \
-    fi;
+    fi
 
 COPY . .
 RUN npx prisma generate
