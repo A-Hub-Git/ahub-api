@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const BaseCache_1 = __importDefault(require("../Utils/BaseCache"));
 const Libs_1 = require("../Libs");
 const prisma_1 = require("../prisma");
 const CommunicationService_1 = __importDefault(require("./CommunicationService"));
@@ -46,13 +47,11 @@ class UserService extends CommunicationService_1.default {
     }
     static getUsers() {
         return __awaiter(this, void 0, void 0, function* () {
-            // const cachedUsers = await Redis.get('users');
-            // if (cachedUsers) {
-            //   return JSON.parse(cachedUsers);
-            // }
-            const dbUsers = yield prisma_1.Prisma.user.findMany();
-            // Redis.setEx('users', 3600, JSON.stringify(dbUsers));
-            return dbUsers;
+            const users = yield BaseCache_1.default.baseCache('users', () => __awaiter(this, void 0, void 0, function* () {
+                const fresh_users = yield prisma_1.Prisma.user.findMany();
+                return fresh_users;
+            }));
+            return users;
         });
     }
     static getByUnique() {

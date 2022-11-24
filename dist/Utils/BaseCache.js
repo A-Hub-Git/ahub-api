@@ -30,7 +30,7 @@ class BaseCache {
                 }));
             }
             catch (error) {
-                Libs_1.Logger.error(`Cache Error: ${error}`);
+                Libs_1.Logger.error(`Cache ${error}`);
                 reject(error);
             }
         }));

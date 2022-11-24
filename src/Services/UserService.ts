@@ -28,13 +28,12 @@ export default class UserService extends CommunicationService {
   }
 
   static async getUsers() {
-    // const cachedUsers = await Redis.get('users');
-    // if (cachedUsers) {
-    //   return JSON.parse(cachedUsers);
-    // }
-    const dbUsers = await Prisma.user.findMany();
-    // Redis.setEx('users', 3600, JSON.stringify(dbUsers));
-    return dbUsers;
+    const users = await Cache.baseCache('users', async () => {
+      const fresh_users = await Prisma.user.findMany();
+      return fresh_users;
+    });
+
+    return users;
   }
   static async getByUnique() {
     return await Prisma.user.findUnique({where: {}});

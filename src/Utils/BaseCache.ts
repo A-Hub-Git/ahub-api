@@ -18,7 +18,7 @@ class BaseCache {
           return;
         });
       } catch (error) {
-        Logger.error(`Cache Error: ${error}`);
+        Logger.error(`Cache ${error}`);
         reject(error);
       }
     });
