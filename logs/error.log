@@ -26,3 +26,33 @@ AHUB API:ERROR [Nov-23-2022 18:40:22] OTP Error
 AHUB API:ERROR [Nov-23-2022 19:03:51] OTP Error
 AHUB API:ERROR [Nov-23-2022 19:03:56] OTP Error
 AHUB API:ERROR [Nov-23-2022 19:04:06] Error generating OTP: {"code":"P2034","clientVersion":"4.6.1","meta":{}}
+AHUB API:ERROR [Nov-23-2022 23:00:54] Login failed. Please try again later.: Error: 
+Invalid `prisma_1.Prisma.user.findUnique()` invocation in
+E:\Projects\servers\ahub-api\dist\Controllers\AuthController.js:30:61
+
+  27 try {
+  28     //const data = await Cache.baseCache('login', async () => {
+  29     Libs_1.Logger.info('Signing In.....');
+→ 30     const user = yield prisma_1.Prisma.user.findUnique(
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: RawDatabaseError { code: "unknown", message: "This is usually a temporary error during hostname resolution and means that the local server did not receive a response from an authoritative server. (os error 11002)" } })
+AHUB API:ERROR [Nov-23-2022 23:01:06] Login failed. Please try again later.: Error: 
+Invalid `prisma_1.Prisma.user.findUnique()` invocation in
+E:\Projects\servers\ahub-api\dist\Controllers\AuthController.js:30:61
+
+  27 try {
+  28     //const data = await Cache.baseCache('login', async () => {
+  29     Libs_1.Logger.info('Signing In.....');
+→ 30     const user = yield prisma_1.Prisma.user.findUnique(
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: RawDatabaseError { code: "unknown", message: "This is usually a temporary error during hostname resolution and means that the local server did not receive a response from an authoritative server. (os error 11002)" } })
+AHUB API:ERROR [Nov-23-2022 23:01:12] Login failed. Please try again later.: Error: 
+Invalid `prisma_1.Prisma.user.findUnique()` invocation in
+E:\Projects\servers\ahub-api\dist\Controllers\AuthController.js:30:61
+
+  27 try {
+  28     //const data = await Cache.baseCache('login', async () => {
+  29     Libs_1.Logger.info('Signing In.....');
+→ 30     const user = yield prisma_1.Prisma.user.findUnique(
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: RawDatabaseError { code: "unknown", message: "This is usually a temporary error during hostname resolution and means that the local server did not receive a response from an authoritative server. (os error 11002)" } })

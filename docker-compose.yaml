@@ -10,14 +10,15 @@ services:
     image: mongo
     container_name: ahub-db
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_ROOT_USERNAME=ahub_username
+      - MONGO_INITDB_ROOT_PASSWORD=ahub_password
     volumes:
       - mongo-db:/data/db
 
 
   backend:
     build: .
+    image: ahubdock/ahub-api
     environment:
       - PORT=8080
     depends_on:

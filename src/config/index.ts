@@ -1,12 +1,6 @@
 import mongoConfig from './mongo';
 import sinchConfig from './sinch';
-import {REDIS_PORT, REDIS_URL, JWT_SECRET, REDIS_PASSWORD} from './middleware';
+import {redisConfig} from './redis';
+import {JWT_SECRET} from './middleware';
 
-export {
-  mongoConfig,
-  REDIS_PORT,
-  JWT_SECRET,
-  REDIS_URL,
-  REDIS_PASSWORD,
-  sinchConfig
-};
+export {mongoConfig, redisConfig, JWT_SECRET, sinchConfig};
