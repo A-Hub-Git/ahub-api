@@ -2,16 +2,14 @@ import router from 'express';
 import {UserController} from '../Controllers';
 
 const Router = router.Router();
-class UserRouter {
+class AdminRouter {
   get() {
     Router.get('/', UserController.fetchUsers);
   }
-  post() {
-    Router.post('/', UserController.createUser);
-  }
+  post() {}
 }
 
-new UserRouter().get();
-new UserRouter().post();
+new AdminRouter().get();
+new AdminRouter().post();
 
 export default Router;

@@ -15,4 +15,11 @@ export default class AuthValidator extends BaseValidator {
     };
     await this.validator(otp, rule, res, cb);
   }
+  static async updatePassword(data: any, res: Response, cb: () => any) {
+    const rule = {
+      old_password: 'required|min:6',
+      new_password: 'required|min:6'
+    };
+    await this.validator(data, rule, res, cb);
+  }
 }

@@ -19,48 +19,50 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.enable('trust proxy');
 
-async function connectDb() {
-  // Connect the client
+class App {
+  async connectDb() {
+    // Connect the client
 
-  try {
-    await Prisma.$connect();
-    await RedisClient.connect();
-    Logger.info('Database Connected!!!');
-    app.use('/api/v1/users', User);
-    app.use('/api/v1/roles', Role);
-    app.use('/api/v1/auth', Auth);
+    try {
+      await Prisma.$connect();
+      // await RedisClient.connect();
+      Logger.info('Database Connected!!!');
+      app.use('/api/v1/users', User);
+      app.use('/api/v1/roles', Role);
+      app.use('/api/v1/auth', Auth);
 
-    app.get('/api/v1', (req: Request, res: Response) => {
-      try {
-        res.status(HTTP_CODES.OK).json('Welcome to A-hub API!!!');
-      } catch (error: any) {
-        const message =
-          process.env.NODE_ENV === 'production'
-            ? ResponseMessage.INTERNAL_SERVER_ERROR
-            : error.toString();
-        res.status(HTTP_CODES.INTERNAL_SERVER_ERROR).json(message);
-      }
-    });
-    app.get('*', (req: Request, res: Response) => {
-      try {
-        res
-          .status(HTTP_CODES.RESOURCE_NOT_FOUND)
-          .json('Requested resource not found');
-      } catch (error: any) {
-        const message =
-          process.env.NODE_ENV === 'production'
-            ? ResponseMessage.INTERNAL_SERVER_ERROR
-            : error.toString();
-        res.status(HTTP_CODES.INTERNAL_SERVER_ERROR).json(message);
-      }
-    });
-  } catch (e) {
-    await Prisma.$disconnect();
-    Logger.error(`Error Connecting to Database: ${e}`);
-    process.exit(1);
+      app.get('/api/v1', (req: Request, res: Response) => {
+        try {
+          res.status(HTTP_CODES.OK).json('Welcome to A-hub API!!!');
+        } catch (error: any) {
+          const message =
+            process.env.NODE_ENV === 'production'
+              ? ResponseMessage.INTERNAL_SERVER_ERROR
+              : error.toString();
+          res.status(HTTP_CODES.INTERNAL_SERVER_ERROR).json(message);
+        }
+      });
+      app.get('*', (req: Request, res: Response) => {
+        try {
+          res
+            .status(HTTP_CODES.RESOURCE_NOT_FOUND)
+            .json('Requested resource not found');
+        } catch (error: any) {
+          const message =
+            process.env.NODE_ENV === 'production'
+              ? ResponseMessage.INTERNAL_SERVER_ERROR
+              : error.toString();
+          res.status(HTTP_CODES.INTERNAL_SERVER_ERROR).json(message);
+        }
+      });
+    } catch (e) {
+      await Prisma.$disconnect();
+      Logger.error(`Error Connecting to Database: ${e}`);
+      process.exit(1);
+    }
   }
 }
 
-connectDb();
+new App().connectDb();
 
 export default app;

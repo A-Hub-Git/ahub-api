@@ -19,6 +19,8 @@ const Libs_1 = require("../Libs");
 const AuthValidator_1 = __importDefault(require("../Validators/AuthValidator"));
 const Utils_1 = require("../Utils");
 const CommunicationService_1 = __importDefault(require("../Services/CommunicationService"));
+const Services_1 = require("../Services");
+const Validators_1 = require("../Validators");
 class AuthController extends CommunicationService_1.default {
     static signIn(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -82,6 +84,86 @@ class AuthController extends CommunicationService_1.default {
                     return BaseRequestHandle_1.default.send(res);
                 }
             }));
+        });
+    }
+    static updatePassword(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { new_password, old_password } = req.body;
+            yield AuthValidator_1.default.updatePassword(req.body, res, () => __awaiter(this, void 0, void 0, function* () {
+                try {
+                    yield Services_1.UserService.updatePassword(req.user, old_password, new_password);
+                    BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'Password Updated Successfully');
+                    return BaseRequestHandle_1.default.send(res);
+                }
+                catch (error) {
+                    BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.BAD_REQUEST, `Invalid or Wrong Old Password`);
+                    return BaseRequestHandle_1.default.send(res);
+                }
+            }));
+        });
+    }
+    static forgetPassword(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield Validators_1.UserValidator.emailOrPhone(req.body, res, () => __awaiter(this, void 0, void 0, function* () {
+                try {
+                    const user = yield Services_1.UserService.getByUnique(Object.assign({}, req.body));
+                    if (user) {
+                        const token = yield AuthService_1.default.forgetPassword(user);
+                        token.token = '';
+                        BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'An OTP Has Been Sent to Your Registered Phone Number', token);
+                        return BaseRequestHandle_1.default.send(res);
+                    }
+                    BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.RESOURCE_NOT_FOUND, 'User Not Found');
+                    return BaseRequestHandle_1.default.send(res);
+                }
+                catch (error) {
+                    BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.INTERNAL_SERVER_ERROR, `Internal Server Error. Contact Support.. : ${error}`);
+                    return BaseRequestHandle_1.default.send(res);
+                }
+            }));
+        });
+    }
+    static verifyResetPassword(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { user_id, otp } = req.body;
+            try {
+                const verify = yield AuthService_1.default.verifyResetPassword(user_id, otp);
+                if (!verify) {
+                    BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.BAD_REQUEST, 'Invalid or Wrong OTP');
+                    return BaseRequestHandle_1.default.send(res);
+                }
+                BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'OTP Verified');
+                return BaseRequestHandle_1.default.send(res);
+            }
+            catch (error) {
+                BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.INTERNAL_SERVER_ERROR, `Internal Server Error. Contact Support.. : ${error}`);
+                return BaseRequestHandle_1.default.send(res);
+            }
+        });
+    }
+    static confirmResetPassword(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { user_id, new_password } = req.body;
+            try {
+                const [user, token] = yield Promise.all([
+                    AuthService_1.default.confirmResetPassword(user_id, new_password),
+                    AuthService_1.default.findPasswordToken(user_id)
+                ]);
+                if (!token.isVerified) {
+                    BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.BAD_REQUEST, 'Kindly Verify OTP');
+                    return BaseRequestHandle_1.default.send(res);
+                }
+                if (!user) {
+                    BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.BAD_REQUEST, 'User Not Found');
+                    return BaseRequestHandle_1.default.send(res);
+                }
+                BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'Password Updated Successfully');
+                return BaseRequestHandle_1.default.send(res);
+            }
+            catch (error) {
+                BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.INTERNAL_SERVER_ERROR, `Internal Server Error. Contact Support.. : ${error}`);
+                return BaseRequestHandle_1.default.send(res);
+            }
         });
     }
 }

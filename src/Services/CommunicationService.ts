@@ -46,7 +46,6 @@ export default class CommunicationService extends Authorization {
       const isOtp = await Prisma.verificationToken.findFirst({
         where: {userId} as VerificationToken
       });
-      console.log(isOtp?.expires_at);
       try {
         if (
           isOtp &&

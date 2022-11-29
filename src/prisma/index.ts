@@ -1,4 +1,10 @@
-import {PrismaClient, User, Role, VerificationToken} from '@prisma/client';
+import {
+  PrismaClient,
+  User,
+  Role,
+  VerificationToken,
+  PasswordResetToken
+} from '@prisma/client';
 const Prisma = new PrismaClient();
 
-export {Prisma, User, Role, VerificationToken};
+export {Prisma, User, Role, VerificationToken, PasswordResetToken};

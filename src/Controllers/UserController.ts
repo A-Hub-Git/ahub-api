@@ -76,21 +76,23 @@ export default class UserController {
     const user = data.role;
     await UserValidator.createAccount(data, res, async () => {
       try {
-        Logger.info(`Creating ${data.role}... 🏃‍♂️`);
+        Logger.info(`Registering ${data.role}... 🏃‍♂️`);
         data.roleId =
           data.role === 'Patron' ? ACL_ROLES.PATRON : ACL_ROLES.ARTISAN;
         delete data.role;
-        data.password = await Authorization.createHash(data.password);
+        data.password = Authorization.createHash(data.password);
         const createdUser = await UserService.create(data);
-        Logger.info(`${user} Created Successfully😅`);
+        Logger.info(`${user} Registered Successfully😅`);
         BaseRequestHandle.setSuccess(
           HTTP_CODES.CREATED,
-          `${user} Created Successfully`,
+          `${user} Registered Successfully`,
           createdUser
         );
         return BaseRequestHandle.send(res);
       } catch (error) {
-        Logger.error(`Error creating ${user} : ${JSON.stringify(error)}  😠`);
+        Logger.error(
+          `Error Registering ${user} : ${JSON.stringify(error)}  😠`
+        );
         BaseRequestHandle.setError(
           HTTP_CODES.INTERNAL_SERVER_ERROR,
           `${ResponseMessage.INTERNAL_SERVER_ERROR + error}`

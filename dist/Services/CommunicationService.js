@@ -59,7 +59,6 @@ class CommunicationService extends Authorization_1.default {
             const isOtp = yield prisma_1.Prisma.verificationToken.findFirst({
                 where: { userId }
             });
-            console.log(isOtp === null || isOtp === void 0 ? void 0 : isOtp.expires_at);
             try {
                 if (isOtp &&
                     this.compareHash(token, isOtp.token) &&

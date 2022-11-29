@@ -2,13 +2,15 @@ import {Prisma, User} from '../prisma';
 import {Request, Response} from 'express';
 import BaseRequestHandle from '../Utils/BaseRequestHandle';
 import AuthService from '../Services/AuthService';
-import Authorization from '../Authorization/Authorization';
+import moment from 'moment';
 import {Logger} from '../Libs';
 import AuthValidator from '../Validators/AuthValidator';
 import Cache from '../Utils/BaseCache';
 import Constant from '../Constant';
 import {HTTP_CODES} from '../Utils';
 import CommunicationService from '../Services/CommunicationService';
+import {UserService} from '../Services';
+import {UserValidator} from '../Validators';
 
 export default class AuthController extends CommunicationService {
   static async signIn(req: Request, res: Response) {
@@ -43,7 +45,7 @@ export default class AuthController extends CommunicationService {
   static async resendOtp(req: Request, res: Response) {
     try {
       const user = await Prisma.user.findFirst({
-        where: {id: req.params.user_id}
+        where: {id: req.user.id}
       });
       await CommunicationService.sendSms(
         user?.phone as string,
@@ -83,5 +85,101 @@ export default class AuthController extends CommunicationService {
         return BaseRequestHandle.send(res);
       }
     });
+  }
+  static async updatePassword(req: Request, res: Response) {
+    const {new_password, old_password} = req.body;
+    await AuthValidator.updatePassword(req.body, res, async () => {
+      try {
+        await UserService.updatePassword(req.user, old_password, new_password);
+        BaseRequestHandle.setSuccess(
+          HTTP_CODES.CREATED,
+          'Password Updated Successfully'
+        );
+        return BaseRequestHandle.send(res);
+      } catch (error) {
+        BaseRequestHandle.setError(
+          HTTP_CODES.BAD_REQUEST,
+          `Invalid or Wrong Old Password`
+        );
+        return BaseRequestHandle.send(res);
+      }
+    });
+  }
+  static async forgetPassword(req: Request, res: Response) {
+    await UserValidator.emailOrPhone(req.body, res, async () => {
+      try {
+        const user = await UserService.getByUnique({...req.body});
+        if (user) {
+          const token = await AuthService.forgetPassword(user as User);
+          token.token = '';
+          BaseRequestHandle.setSuccess(
+            HTTP_CODES.CREATED,
+            'An OTP Has Been Sent to Your Registered Phone Number',
+            token
+          );
+          return BaseRequestHandle.send(res);
+        }
+        BaseRequestHandle.setError(
+          HTTP_CODES.RESOURCE_NOT_FOUND,
+          'User Not Found'
+        );
+        return BaseRequestHandle.send(res);
+      } catch (error) {
+        BaseRequestHandle.setError(
+          HTTP_CODES.INTERNAL_SERVER_ERROR,
+          `Internal Server Error. Contact Support.. : ${error}`
+        );
+        return BaseRequestHandle.send(res);
+      }
+    });
+  }
+  static async verifyResetPassword(req: Request, res: Response) {
+    const {user_id, otp} = req.body;
+    try {
+      const verify = await AuthService.verifyResetPassword(user_id, otp);
+      if (!verify) {
+        BaseRequestHandle.setError(
+          HTTP_CODES.BAD_REQUEST,
+          'Invalid or Wrong OTP'
+        );
+        return BaseRequestHandle.send(res);
+      }
+      BaseRequestHandle.setSuccess(HTTP_CODES.CREATED, 'OTP Verified');
+      return BaseRequestHandle.send(res);
+    } catch (error) {
+      BaseRequestHandle.setError(
+        HTTP_CODES.INTERNAL_SERVER_ERROR,
+        `Internal Server Error. Contact Support.. : ${error}`
+      );
+      return BaseRequestHandle.send(res);
+    }
+  }
+  static async confirmResetPassword(req: Request, res: Response) {
+    const {user_id, new_password} = req.body;
+    try {
+      const [user, token] = await Promise.all([
+        AuthService.confirmResetPassword(user_id, new_password),
+        AuthService.findPasswordToken(user_id)
+      ]);
+      if (!token.isVerified && moment().isAfter(token.expires_at)) {
+        BaseRequestHandle.setError(HTTP_CODES.BAD_REQUEST, 'Invalid OTP');
+        return BaseRequestHandle.send(res);
+      }
+      if (!user) {
+        BaseRequestHandle.setError(HTTP_CODES.BAD_REQUEST, 'User Not Found');
+        return BaseRequestHandle.send(res);
+      }
+      BaseRequestHandle.setSuccess(
+        HTTP_CODES.CREATED,
+        'Password Updated Successfully'
+      );
+      return BaseRequestHandle.send(res);
+    } catch (error) {
+      BaseRequestHandle.setError(
+        HTTP_CODES.INTERNAL_SERVER_ERROR,
+        `Internal Server Error. Contact Support.. : ${error}`
+      );
+      return BaseRequestHandle.send(res);
+    }
   }
 }

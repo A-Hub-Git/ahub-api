@@ -16,6 +16,7 @@ const BaseCache_1 = __importDefault(require("../Utils/BaseCache"));
 const Libs_1 = require("../Libs");
 const prisma_1 = require("../prisma");
 const CommunicationService_1 = __importDefault(require("./CommunicationService"));
+const Authorization_1 = __importDefault(require("../Authorization/Authorization"));
 class UserService extends CommunicationService_1.default {
     static role(data) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -54,9 +55,55 @@ class UserService extends CommunicationService_1.default {
             return users;
         });
     }
-    static getByUnique() {
+    static getByUnique(clause) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma_1.Prisma.user.findUnique({ where: {} });
+            return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+                try {
+                    let where = Object.assign({}, clause);
+                    const user = yield prisma_1.Prisma.user.findUnique({ where });
+                    return resolve(user);
+                }
+                catch (error) {
+                    reject(error);
+                }
+            }));
+        });
+    }
+    static update(clause, data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+                try {
+                    let where = Object.assign({}, clause);
+                    const user = yield prisma_1.Prisma.user.update({
+                        where,
+                        data
+                    });
+                    return resolve(user);
+                }
+                catch (error) {
+                    reject(error);
+                }
+            }));
+        });
+    }
+    static updatePassword(user, oldPassword, newPassword) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return new Promise((resolve, reject) => {
+                try {
+                    const isOldPassword = Authorization_1.default.compareHash(oldPassword, user.password);
+                    if (!isOldPassword)
+                        return reject(false);
+                    const password = Authorization_1.default.createHash(newPassword);
+                    const updatedPassword = prisma_1.Prisma.user.update({
+                        where: { id: user.id },
+                        data: { password }
+                    });
+                    return resolve(updatedPassword);
+                }
+                catch (error) {
+                    reject(error);
+                }
+            });
         });
     }
 }

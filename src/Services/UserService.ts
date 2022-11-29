@@ -2,6 +2,7 @@ import Cache from '../Utils/BaseCache';
 import {Logger} from '../Libs';
 import {Prisma, User, Role} from '../prisma';
 import CommunicationService from './CommunicationService';
+import Authorization from '../Authorization/Authorization';
 
 export default class UserService extends CommunicationService {
   static async role(data: Role) {
@@ -35,7 +36,58 @@ export default class UserService extends CommunicationService {
 
     return users;
   }
-  static async getByUnique() {
-    return await Prisma.user.findUnique({where: {}});
+  static async getByUnique(clause: object) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let where = {
+          ...clause
+        };
+        const user = await Prisma.user.findUnique({where});
+        return resolve(user);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+  static async update(clause: object, data: User) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let where = {
+          ...clause
+        };
+        const user = await Prisma.user.update({
+          where,
+          data
+        });
+
+        return resolve(user);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+  static async updatePassword(
+    user: User,
+    oldPassword: string,
+    newPassword: string
+  ) {
+    return new Promise((resolve, reject) => {
+      try {
+        const isOldPassword = Authorization.compareHash(
+          oldPassword,
+          user.password
+        );
+        if (!isOldPassword) return reject(false);
+
+        const password = Authorization.createHash(newPassword);
+        const updatedPassword = Prisma.user.update({
+          where: {id: user.id},
+          data: {password}
+        });
+        return resolve(updatedPassword);
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 }

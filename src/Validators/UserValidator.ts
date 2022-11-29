@@ -23,4 +23,11 @@ export default class UserValidator extends BaseValidator {
     }
     this.validator(data, rules, res, cb);
   }
+  static async emailOrPhone(data: any, res: Response, cb: () => any) {
+    const rule = {
+      email: 'email',
+      phone: ['regex:/^([0|+[0-9]{1,5})?([7-9][0-9]{9})$/']
+    };
+    await this.validator(data, rule, res, cb);
+  }
 }

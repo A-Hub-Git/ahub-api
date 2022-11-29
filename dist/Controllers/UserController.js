@@ -79,18 +79,18 @@ class UserController {
             const user = data.role;
             yield Validators_1.UserValidator.createAccount(data, res, () => __awaiter(this, void 0, void 0, function* () {
                 try {
-                    Libs_1.Logger.info(`Creating ${data.role}... 🏃‍♂️`);
+                    Libs_1.Logger.info(`Registering ${data.role}... 🏃‍♂️`);
                     data.roleId =
                         data.role === 'Patron' ? Utils_1.ACL_ROLES.PATRON : Utils_1.ACL_ROLES.ARTISAN;
                     delete data.role;
-                    data.password = yield Authorization_1.default.createHash(data.password);
+                    data.password = Authorization_1.default.createHash(data.password);
                     const createdUser = yield Services_1.UserService.create(data);
-                    Libs_1.Logger.info(`${user} Created Successfully😅`);
-                    BaseRequestHandle_1.default.setSuccess(Enum_1.HTTP_CODES.CREATED, `${user} Created Successfully`, createdUser);
+                    Libs_1.Logger.info(`${user} Registered Successfully😅`);
+                    BaseRequestHandle_1.default.setSuccess(Enum_1.HTTP_CODES.CREATED, `${user} Registered Successfully`, createdUser);
                     return BaseRequestHandle_1.default.send(res);
                 }
                 catch (error) {
-                    Libs_1.Logger.error(`Error creating ${user} : ${JSON.stringify(error)}  😠`);
+                    Libs_1.Logger.error(`Error Registering ${user} : ${JSON.stringify(error)}  😠`);
                     BaseRequestHandle_1.default.setError(Enum_1.HTTP_CODES.INTERNAL_SERVER_ERROR, `${Enum_1.ResponseMessage.INTERNAL_SERVER_ERROR + error}`);
                     return BaseRequestHandle_1.default.send(res);
                 }

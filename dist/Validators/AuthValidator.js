@@ -31,6 +31,15 @@ class AuthValidator extends BaseValidator_1.default {
             yield this.validator(otp, rule, res, cb);
         });
     }
+    static updatePassword(data, res, cb) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const rule = {
+                old_password: 'required|min:6',
+                new_password: 'required|min:6'
+            };
+            yield this.validator(data, rule, res, cb);
+        });
+    }
 }
 exports.default = AuthValidator;
 //# sourceMappingURL=AuthValidator.js.map

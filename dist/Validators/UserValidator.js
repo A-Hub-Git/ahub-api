@@ -34,6 +34,15 @@ class UserValidator extends BaseValidator_1.default {
             this.validator(data, rules, res, cb);
         });
     }
+    static emailOrPhone(data, res, cb) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const rule = {
+                email: 'email',
+                phone: ['regex:/^([0|+[0-9]{1,5})?([7-9][0-9]{9})$/']
+            };
+            yield this.validator(data, rule, res, cb);
+        });
+    }
 }
 exports.default = UserValidator;
 //# sourceMappingURL=UserValidator.js.map
