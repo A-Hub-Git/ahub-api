@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const prisma_1 = require("../prisma");
 const BaseRequestHandle_1 = __importDefault(require("../Utils/BaseRequestHandle"));
 const AuthService_1 = __importDefault(require("../Services/AuthService"));
+const moment_1 = __importDefault(require("moment"));
 const Libs_1 = require("../Libs");
 const AuthValidator_1 = __importDefault(require("../Validators/AuthValidator"));
 const Utils_1 = require("../Utils");
@@ -53,7 +54,7 @@ class AuthController extends CommunicationService_1.default {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const user = yield prisma_1.Prisma.user.findFirst({
-                    where: { id: req.params.user_id }
+                    where: { id: req.user.id }
                 });
                 yield CommunicationService_1.default.sendSms(user === null || user === void 0 ? void 0 : user.phone, user === null || user === void 0 ? void 0 : user.id);
                 BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'otp sent');
@@ -149,8 +150,8 @@ class AuthController extends CommunicationService_1.default {
                     AuthService_1.default.confirmResetPassword(user_id, new_password),
                     AuthService_1.default.findPasswordToken(user_id)
                 ]);
-                if (!token.isVerified) {
-                    BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.BAD_REQUEST, 'Kindly Verify OTP');
+                if (!token.isVerified && (0, moment_1.default)().isAfter(token.expires_at)) {
+                    BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.BAD_REQUEST, 'Invalid OTP');
                     return BaseRequestHandle_1.default.send(res);
                 }
                 if (!user) {
