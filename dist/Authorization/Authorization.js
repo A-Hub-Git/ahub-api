@@ -22,9 +22,9 @@ const config_1 = require("../config");
 const BaseRequestHandle_1 = __importDefault(require("../Utils/BaseRequestHandle"));
 dotenv_1.default.config();
 class Authorization {
-    static cookieToken(user, res) {
+    cookieToken(user, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const token = yield this.getJwtToken(user);
+            const token = yield Authorization.getJwtToken(user);
             const options = {
                 expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
                 httpOnly: true

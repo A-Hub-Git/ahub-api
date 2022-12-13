@@ -9,8 +9,8 @@ import BaseRequestHandle from '../Utils/BaseRequestHandle';
 
 dotenv.config();
 export default class Authorization {
-  static async cookieToken(user: User | any, res: Response) {
-    const token = await this.getJwtToken(user);
+  async cookieToken(user: User | any, res: Response) {
+    const token = await Authorization.getJwtToken(user);
     const options = {
       expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
       httpOnly: true
@@ -53,7 +53,7 @@ export default class Authorization {
               user &&
               roleIds &&
               roleIds.length &&
-              !roleIds.includes(user.roleId)
+              !roleIds.includes(user.roleId as number)
             ) {
               BaseRequestHandle.setError(
                 HTTP_CODES.BAD_REQUEST,

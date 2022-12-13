@@ -8,6 +8,7 @@ class UserRouter {
   }
   post() {
     Router.post('/', UserController.createUser);
+    Router.post('/wait-list', UserController.joinWaitList);
   }
 }
 

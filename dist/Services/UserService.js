@@ -15,9 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const BaseCache_1 = __importDefault(require("../Utils/BaseCache"));
 const Libs_1 = require("../Libs");
 const prisma_1 = require("../prisma");
-const CommunicationService_1 = __importDefault(require("./CommunicationService"));
+const SMSService_1 = __importDefault(require("./SMSService"));
 const Authorization_1 = __importDefault(require("../Authorization/Authorization"));
-class UserService extends CommunicationService_1.default {
+const File_1 = require("../File");
+const MailerService_1 = __importDefault(require("./MailerService"));
+class UserService extends Authorization_1.default {
     static role(data) {
         return __awaiter(this, void 0, void 0, function* () {
             const role = yield prisma_1.Prisma.role.findMany();
@@ -28,8 +30,8 @@ class UserService extends CommunicationService_1.default {
     static create(data) {
         return __awaiter(this, void 0, void 0, function* () {
             const user = yield prisma_1.Prisma.user.create({ data });
-            const sms = yield this.sendSms(user.phone, user.id);
-            return { user, sms };
+            yield SMSService_1.default.sendOtp(user.phone, 'An OTP to verify your account', user.id);
+            return user;
         });
     }
     static getRoles() {
@@ -90,7 +92,7 @@ class UserService extends CommunicationService_1.default {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => {
                 try {
-                    const isOldPassword = Authorization_1.default.compareHash(oldPassword, user.password);
+                    const isOldPassword = this.compareHash(oldPassword, user.password);
                     if (!isOldPassword)
                         return reject(false);
                     const password = Authorization_1.default.createHash(newPassword);
@@ -105,6 +107,18 @@ class UserService extends CommunicationService_1.default {
                 }
             });
         });
+    }
+    static joinWaitList(email) {
+        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                const join = yield prisma_1.Prisma.user.create({ data: { email } });
+                yield MailerService_1.default._sendMail(email, 'Wait List', File_1.wait_list);
+                resolve(join);
+            }
+            catch (error) {
+                reject(error);
+            }
+        }));
     }
 }
 exports.default = UserService;

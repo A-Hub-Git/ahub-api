@@ -6,13 +6,13 @@ import moment from 'moment';
 import {Logger} from '../Libs';
 import AuthValidator from '../Validators/AuthValidator';
 import Cache from '../Utils/BaseCache';
-import Constant from '../Constant';
 import {HTTP_CODES} from '../Utils';
-import CommunicationService from '../Services/CommunicationService';
+import {SMSService} from '../Services';
 import {UserService} from '../Services';
 import {UserValidator} from '../Validators';
+import QueueService from '../Services/QueueService';
 
-export default class AuthController extends CommunicationService {
+export default class AuthController {
   static async signIn(req: Request, res: Response) {
     const {email, password} = req.body;
     await AuthValidator.login(req.body, res, async () => {
@@ -47,10 +47,12 @@ export default class AuthController extends CommunicationService {
       const user = await Prisma.user.findFirst({
         where: {id: req.user.id}
       });
-      await CommunicationService.sendSms(
+      await QueueService.sendOTP(
         user?.phone as string,
+        'Enter this OTP to verify your account',
         user?.id as string
       );
+
       BaseRequestHandle.setSuccess(HTTP_CODES.CREATED, 'otp sent');
       return BaseRequestHandle.send(res);
     } catch (error) {
@@ -66,7 +68,7 @@ export default class AuthController extends CommunicationService {
     const user = req.user;
     await AuthValidator.verifyOtp(req.params, res, async () => {
       try {
-        const valid = await CommunicationService.verifyOtp(user.id, `${otp}`);
+        const valid = await SMSService.verifyOtp(user.id, `${otp}`);
 
         if (!valid) {
           BaseRequestHandle.setError(

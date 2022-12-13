@@ -1,0 +1,1 @@
+{"version":3,"file":"termii.js","sourceRoot":"","sources":["../../src/config/termii.ts"],"names":[],"mappings":";;AAAA,OAAO,CAAC,QAAQ,CAAC,CAAC,MAAM,EAAE,CAAC;AAE3B,kBAAe;IACb,OAAO,EAAE,OAAO,CAAC,GAAG,CAAC,eAAe;IACpC,IAAI,EAAE,OAAO,CAAC,GAAG,CAAC,eAAe;IACjC,OAAO,EAAE,OAAO,CAAC,GAAG,CAAC,cAAc;IACnC,UAAU,EAAE,OAAO,CAAC,GAAG,CAAC,iBAAiB;CAC1C,CAAC"}

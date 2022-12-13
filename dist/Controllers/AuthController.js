@@ -19,10 +19,11 @@ const moment_1 = __importDefault(require("moment"));
 const Libs_1 = require("../Libs");
 const AuthValidator_1 = __importDefault(require("../Validators/AuthValidator"));
 const Utils_1 = require("../Utils");
-const CommunicationService_1 = __importDefault(require("../Services/CommunicationService"));
 const Services_1 = require("../Services");
+const Services_2 = require("../Services");
 const Validators_1 = require("../Validators");
-class AuthController extends CommunicationService_1.default {
+const QueueService_1 = __importDefault(require("../Services/QueueService"));
+class AuthController {
     static signIn(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { email, password } = req.body;
@@ -56,7 +57,7 @@ class AuthController extends CommunicationService_1.default {
                 const user = yield prisma_1.Prisma.user.findFirst({
                     where: { id: req.user.id }
                 });
-                yield CommunicationService_1.default.sendSms(user === null || user === void 0 ? void 0 : user.phone, user === null || user === void 0 ? void 0 : user.id);
+                yield QueueService_1.default.sendOTP(user === null || user === void 0 ? void 0 : user.phone, 'Enter this OTP to verify your account', user === null || user === void 0 ? void 0 : user.id);
                 BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'otp sent');
                 return BaseRequestHandle_1.default.send(res);
             }
@@ -72,7 +73,7 @@ class AuthController extends CommunicationService_1.default {
             const user = req.user;
             yield AuthValidator_1.default.verifyOtp(req.params, res, () => __awaiter(this, void 0, void 0, function* () {
                 try {
-                    const valid = yield CommunicationService_1.default.verifyOtp(user.id, `${otp}`);
+                    const valid = yield Services_1.SMSService.verifyOtp(user.id, `${otp}`);
                     if (!valid) {
                         BaseRequestHandle_1.default.setError(Utils_1.HTTP_CODES.BAD_REQUEST, 'Invalid or wrong otp.');
                         return BaseRequestHandle_1.default.send(res);
@@ -92,7 +93,7 @@ class AuthController extends CommunicationService_1.default {
             const { new_password, old_password } = req.body;
             yield AuthValidator_1.default.updatePassword(req.body, res, () => __awaiter(this, void 0, void 0, function* () {
                 try {
-                    yield Services_1.UserService.updatePassword(req.user, old_password, new_password);
+                    yield Services_2.UserService.updatePassword(req.user, old_password, new_password);
                     BaseRequestHandle_1.default.setSuccess(Utils_1.HTTP_CODES.CREATED, 'Password Updated Successfully');
                     return BaseRequestHandle_1.default.send(res);
                 }
@@ -107,7 +108,7 @@ class AuthController extends CommunicationService_1.default {
         return __awaiter(this, void 0, void 0, function* () {
             yield Validators_1.UserValidator.emailOrPhone(req.body, res, () => __awaiter(this, void 0, void 0, function* () {
                 try {
-                    const user = yield Services_1.UserService.getByUnique(Object.assign({}, req.body));
+                    const user = yield Services_2.UserService.getByUnique(Object.assign({}, req.body));
                     if (user) {
                         const token = yield AuthService_1.default.forgetPassword(user);
                         token.token = '';

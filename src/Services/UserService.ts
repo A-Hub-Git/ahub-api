@@ -1,10 +1,13 @@
 import Cache from '../Utils/BaseCache';
 import {Logger} from '../Libs';
 import {Prisma, User, Role} from '../prisma';
-import CommunicationService from './CommunicationService';
+import SMSService from './SMSService';
 import Authorization from '../Authorization/Authorization';
+import QueueService from './QueueService';
+import {wait_list} from '../File';
+import MailerService from './MailerService';
 
-export default class UserService extends CommunicationService {
+export default class UserService extends Authorization {
   static async role(data: Role) {
     const role = await Prisma.role.findMany();
     data.roleId = role.length + 1;
@@ -12,9 +15,13 @@ export default class UserService extends CommunicationService {
   }
   static async create(data: User) {
     const user = await Prisma.user.create({data});
-    const sms = await this.sendSms(user.phone, user.id);
+    await SMSService.sendOtp(
+      user.phone as string,
+      'An OTP to verify your account',
+      user.id
+    );
 
-    return {user, sms};
+    return user;
   }
   static async getRoles() {
     try {
@@ -73,9 +80,9 @@ export default class UserService extends CommunicationService {
   ) {
     return new Promise((resolve, reject) => {
       try {
-        const isOldPassword = Authorization.compareHash(
+        const isOldPassword = this.compareHash(
           oldPassword,
-          user.password
+          user.password as string
         );
         if (!isOldPassword) return reject(false);
 
@@ -85,6 +92,17 @@ export default class UserService extends CommunicationService {
           data: {password}
         });
         return resolve(updatedPassword);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+  static joinWaitList(email: string) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const join = await Prisma.user.create({data: {email}});
+        await MailerService._sendMail(email, 'Wait List', wait_list);
+        resolve(join);
       } catch (error) {
         reject(error);
       }

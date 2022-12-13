@@ -76,11 +76,23 @@ export default class UserController {
     const user = data.role;
     await UserValidator.createAccount(data, res, async () => {
       try {
+        const user = await Prisma.user.findUnique({
+          where: {email: req.body.email}
+        });
+        if (user) {
+          BaseRequestHandle.setError(
+            HTTP_CODES.CONFLICT,
+            `Email already taken`
+          );
+          return BaseRequestHandle.send(res);
+        }
         Logger.info(`Registering ${data.role}... 🏃‍♂️`);
         data.roleId =
           data.role === 'Patron' ? ACL_ROLES.PATRON : ACL_ROLES.ARTISAN;
         delete data.role;
-        data.password = Authorization.createHash(data.password);
+        data.password = data.password
+          ? Authorization.createHash(data.password)
+          : '';
         const createdUser = await UserService.create(data);
         Logger.info(`${user} Registered Successfully😅`);
         BaseRequestHandle.setSuccess(
@@ -96,6 +108,35 @@ export default class UserController {
         BaseRequestHandle.setError(
           HTTP_CODES.INTERNAL_SERVER_ERROR,
           `${ResponseMessage.INTERNAL_SERVER_ERROR + error}`
+        );
+        return BaseRequestHandle.send(res);
+      }
+    });
+  }
+  static async joinWaitList(req: Request, res: Response) {
+    await UserValidator.joinWaitList(req.body, res, async () => {
+      try {
+        const user = await Prisma.user.findUnique({
+          where: {email: req.body.email}
+        });
+        if (user) {
+          BaseRequestHandle.setError(
+            HTTP_CODES.CONFLICT,
+            `You are already in our wait list`
+          );
+          return BaseRequestHandle.send(res);
+        }
+        const is_joined = await UserService.joinWaitList(req.body.email);
+        BaseRequestHandle.setSuccess(
+          HTTP_CODES.CREATED,
+          'Hi there, Thank you for your interest in our services, we will keep you in touch with all relevant update to our services and coverage.A-hub Team ',
+          is_joined
+        );
+        return BaseRequestHandle.send(res);
+      } catch (error) {
+        BaseRequestHandle.setError(
+          HTTP_CODES.INTERNAL_SERVER_ERROR,
+          ResponseMessage.INTERNAL_SERVER_ERROR
         );
         return BaseRequestHandle.send(res);
       }

@@ -35,20 +35,22 @@ model Role {
 
 model User {
   id                String               @id @default(auto()) @map("_id") @db.ObjectId
-  roleId            Int
-  full_name         String
+  roleId            Int?
+  full_name         String?
   email             String               @unique
-  phone             String
-  password          String
+  phone             String?
+  password          String?
   gender            Gender?
   verification_type VerificationType?
   isVerified        Boolean?
   dob               DateTime?
   location          Json?
   artisanId         String?
-  Role              Role                 @relation(fields: [roleId], references: [roleId])
+  Role              Role?                @relation(fields: [roleId], references: [roleId])
   token             VerificationToken[]
   passwordToken     PasswordResetToken[]
+  tasks             Task[]
+  TaskAssignment    TaskAssignment[]
 }
 
 model VerificationToken {
@@ -69,11 +71,58 @@ model PasswordResetToken {
   User       User     @relation(fields: [userId], references: [id])
 }
 
-// enum PackageType {
-//   Percel
-// }
+enum ItemType {
+  Percel
+}
 
-// model Package {
-//   id   String      @id @default(auto()) @map("_id") @db.ObjectId
-//   type PackageType
-// }
+model Task {
+  id               String           @id @default(auto()) @map("_id") @db.ObjectId
+  name             String?
+  type             ItemType?
+  amount           Float            @default(0.0)
+  note             String?
+  is_fragile       Boolean          @default(false)
+  weightKg         Float            @default(0.0)
+  recipient_name   String?
+  recipient_phone  String
+  pick_up          Json
+  drop_off         Json
+  patron_id        String
+  task_assignments TaskAssignment[]
+  User             User             @relation(fields: [patron_id], references: [id])
+}
+
+enum STATUS {
+  pending
+  in_progress
+  rejected
+  disbursed
+  approved
+  completed
+}
+
+model TaskAssignment {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  task_id     String
+  rider_id    String
+  approved_by String?
+  approved_at DateTime?
+  task        Task      @relation(fields: [task_id], references: [id])
+  rider       User      @relation(fields: [rider_id], references: [id])
+  status      STATUS
+}
+
+enum TRANSACTION_ORIGIN {
+  wallet
+  card
+  bank_transfer
+  cash
+}
+
+model Transaction {
+  id                 String             @id @default(auto()) @map("_id") @db.ObjectId
+  reference          String
+  is_approved        Boolean            @default(false)
+  amount             Float              @default(0.0)
+  transaction_origin TRANSACTION_ORIGIN
+}

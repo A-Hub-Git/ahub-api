@@ -17,6 +17,25 @@ services:
       - MONGO_PASSWORD=ahub_password
     command: npm run dev
 
+  # consumer:
+  #   depends_on:
+  #     - rabbitmq
+  #     - backend
+  #   container_name: consumer
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.Consumer
+  #     args:
+  #       NODE_ENV: development
+  #   volumes: 
+  #   - ./:/app
+  #   environment:
+  #     - PORT=8080
+  #     - NODE_ENV= development
+  #   restart: unless-stopped
+  #   security_opt:
+  #     - no-new-privileges:true
+  #   command: npm run start:consumer:dev
   mongo: 
     environment:
       - MONGO_INITDB_ROOT_USERNAME=ahub_username

@@ -14,38 +14,83 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const moment_1 = __importDefault(require("moment"));
 const axios_1 = __importDefault(require("axios"));
+const nodemailer = require('nodemailer');
 const prisma_1 = require("../prisma");
 const Authorization_1 = __importDefault(require("../Authorization/Authorization"));
 const Libs_1 = require("../Libs");
+const String_1 = __importDefault(require("../Utils/String"));
 const config_1 = require("../config");
-class CommunicationService extends Authorization_1.default {
-    static generateOtp(userId) {
+class SMSService {
+    constructor() {
+        this.httpService = axios_1.default.create({
+            baseURL: config_1.termiiConfig.baseUrl
+        });
+    }
+    sendOtp(recipients, message, userId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const _recipients = Array.isArray(recipients) ? recipients : [recipients];
+            const to = this._prunRecipients(_recipients);
+            const otp = message + ': ' + (yield this.generateOtp(userId));
+            return this.send(to, otp);
+        });
+    }
+    send(to, sms, channel = 'dnd') {
+        return __awaiter(this, void 0, void 0, function* () {
+            const data = this._loadData({ to, sms, channel });
+            return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+                try {
+                    const response = yield this.httpService.post('/sms/send', data);
+                    console.log('sms sent');
+                    resolve(response.data);
+                }
+                catch (error) {
+                    Libs_1.Logger.error(`SMS Error: ${JSON.stringify(error)}`);
+                    reject(error);
+                }
+            }));
+        });
+    }
+    _loadData(extra = {}) {
+        const { from, api_key } = this._loadConfig();
+        return Object.assign({ type: 'plain', channel: 'dnd', from,
+            api_key }, extra);
+    }
+    _loadConfig() {
+        return config_1.termiiConfig;
+    }
+    _prunRecipients(recipients) {
+        return Array.isArray(recipients)
+            ? recipients.map(phone => phone.replace(/[^0-9]/g, ''))
+            : recipients;
+    }
+    generateOtp(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
                 const expires_at = (0, moment_1.default)().add(10, 'm').toDate();
-                const token = this.createHash('1234');
+                const otp = String_1.default.otp();
+                const token = Authorization_1.default.createHash(otp);
                 try {
                     const exist = yield prisma_1.Prisma.verificationToken.findFirst({
                         where: { userId }
                     });
                     if (!exist) {
-                        const created = yield prisma_1.Prisma.verificationToken.create({
+                        yield prisma_1.Prisma.verificationToken.create({
                             data: {
                                 token,
                                 userId,
                                 expires_at
                             }
                         });
-                        return resolve(created);
+                        return resolve(otp);
                     }
-                    const updated = yield prisma_1.Prisma.verificationToken.update({
+                    yield prisma_1.Prisma.verificationToken.update({
                         where: { id: exist.id },
                         data: {
                             expires_at,
                             token
                         }
                     });
-                    return resolve(updated);
+                    return resolve(otp);
                 }
                 catch (error) {
                     Libs_1.Logger.error(`Error generating OTP: ${JSON.stringify(error)}`);
@@ -54,14 +99,14 @@ class CommunicationService extends Authorization_1.default {
             }));
         });
     }
-    static verifyOtp(userId, token) {
+    verifyOtp(userId, token) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             const isOtp = yield prisma_1.Prisma.verificationToken.findFirst({
                 where: { userId }
             });
             try {
                 if (isOtp &&
-                    this.compareHash(token, isOtp.token) &&
+                    Authorization_1.default.compareHash(token, isOtp.token) &&
                     (0, moment_1.default)().isBefore(isOtp.expires_at)) {
                     return resolve(true);
                 }
@@ -72,27 +117,6 @@ class CommunicationService extends Authorization_1.default {
             }
         }));
     }
-    static sendSms(phone_number, userId) {
-        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-            try {
-                const response = yield axios_1.default.post(`${config_1.sinchConfig.SINCH_BASE_URL}/v1/${config_1.sinchConfig.SINCH_SERVICE_PLAN_ID}/batches`, {
-                    from: config_1.sinchConfig.SINCH_SINCH_NUMBER,
-                    to: [`${phone_number}`],
-                    body: `your OTP ${this.generateOtp(userId)}`
-                }, {
-                    headers: {
-                        Authorization: `Bearer ${config_1.sinchConfig.SINCH_API_TOKEN}`
-                    }
-                });
-                Libs_1.Logger.info('OPT sent');
-                resolve(response.data);
-            }
-            catch (error) {
-                Libs_1.Logger.error(`OTP Error`);
-                reject(error);
-            }
-        }));
-    }
 }
-exports.default = CommunicationService;
-//# sourceMappingURL=CommunicationService.js.map
+exports.default = new SMSService();
+//# sourceMappingURL=SMSService.js.map

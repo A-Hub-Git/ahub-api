@@ -13,6 +13,28 @@ services:
       - MONGO_USER=${MONGO_USER}
       - MONGO_PASSWORD=${MONGO_PASSWORD}
     command: npm start
+  # consumer:
+  #   depends_on:
+  #     # - postgres
+  #     - rabbitmq
+  #     - backend
+  #   build: 
+  #     context: .
+  #     dockerfile: Dockerfile.Consumer
+  #     args:
+  #       NODE_ENV: production
+  #   container_name: consumer
+  #   volumes: 
+  #   - ./:/app
+    
+  #   environment:
+  #     - PORT=8080
+  #     - NODE_ENV= production
+  #   restart: unless-stopped
+  #   security_opt:
+  #     - no-new-privileges:true
+  #   command: npm run start:consumer
+    
   mongo: 
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}

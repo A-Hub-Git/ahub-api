@@ -15,7 +15,10 @@ services:
     volumes:
       - mongo-db:/data/db
 
-
+  # rabbitmq:
+  #   image: "rabbitmq:3.8.14-alpine"
+  #   container_name: rabbitmq
+  #   restart: unless-stopped
   backend:
     build: .
     image: ahubdock/ahub-api

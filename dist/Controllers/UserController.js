@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const prisma_1 = require("../prisma");
 const Enum_1 = require("../Utils/Enum");
 const BaseRequestHandle_1 = __importDefault(require("../Utils/BaseRequestHandle"));
 const Services_1 = require("../Services");
@@ -79,11 +80,20 @@ class UserController {
             const user = data.role;
             yield Validators_1.UserValidator.createAccount(data, res, () => __awaiter(this, void 0, void 0, function* () {
                 try {
+                    const user = yield prisma_1.Prisma.user.findUnique({
+                        where: { email: req.body.email }
+                    });
+                    if (user) {
+                        BaseRequestHandle_1.default.setError(Enum_1.HTTP_CODES.CONFLICT, `Email already taken`);
+                        return BaseRequestHandle_1.default.send(res);
+                    }
                     Libs_1.Logger.info(`Registering ${data.role}... 🏃‍♂️`);
                     data.roleId =
                         data.role === 'Patron' ? Utils_1.ACL_ROLES.PATRON : Utils_1.ACL_ROLES.ARTISAN;
                     delete data.role;
-                    data.password = Authorization_1.default.createHash(data.password);
+                    data.password = data.password
+                        ? Authorization_1.default.createHash(data.password)
+                        : '';
                     const createdUser = yield Services_1.UserService.create(data);
                     Libs_1.Logger.info(`${user} Registered Successfully😅`);
                     BaseRequestHandle_1.default.setSuccess(Enum_1.HTTP_CODES.CREATED, `${user} Registered Successfully`, createdUser);
@@ -92,6 +102,28 @@ class UserController {
                 catch (error) {
                     Libs_1.Logger.error(`Error Registering ${user} : ${JSON.stringify(error)}  😠`);
                     BaseRequestHandle_1.default.setError(Enum_1.HTTP_CODES.INTERNAL_SERVER_ERROR, `${Enum_1.ResponseMessage.INTERNAL_SERVER_ERROR + error}`);
+                    return BaseRequestHandle_1.default.send(res);
+                }
+            }));
+        });
+    }
+    static joinWaitList(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield Validators_1.UserValidator.joinWaitList(req.body, res, () => __awaiter(this, void 0, void 0, function* () {
+                try {
+                    const user = yield prisma_1.Prisma.user.findUnique({
+                        where: { email: req.body.email }
+                    });
+                    if (user) {
+                        BaseRequestHandle_1.default.setError(Enum_1.HTTP_CODES.CONFLICT, `You are already in our wait list`);
+                        return BaseRequestHandle_1.default.send(res);
+                    }
+                    const is_joined = yield Services_1.UserService.joinWaitList(req.body.email);
+                    BaseRequestHandle_1.default.setSuccess(Enum_1.HTTP_CODES.CREATED, 'Hi there, Thank you for your interest in our services, we will keep you in touch with all relevant update to our services and coverage.A-hub Team ', is_joined);
+                    return BaseRequestHandle_1.default.send(res);
+                }
+                catch (error) {
+                    BaseRequestHandle_1.default.setError(Enum_1.HTTP_CODES.INTERNAL_SERVER_ERROR, Enum_1.ResponseMessage.INTERNAL_SERVER_ERROR);
                     return BaseRequestHandle_1.default.send(res);
                 }
             }));

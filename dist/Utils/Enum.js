@@ -36,5 +36,6 @@ var ACL_ROLES;
 (function (ACL_ROLES) {
     ACL_ROLES[ACL_ROLES["ARTISAN"] = 1] = "ARTISAN";
     ACL_ROLES[ACL_ROLES["PATRON"] = 2] = "PATRON";
+    ACL_ROLES[ACL_ROLES["RIDER"] = 3] = "RIDER";
 })(ACL_ROLES = exports.ACL_ROLES || (exports.ACL_ROLES = {}));
 //# sourceMappingURL=Enum.js.map

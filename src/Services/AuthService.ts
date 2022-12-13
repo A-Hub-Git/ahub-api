@@ -1,3 +1,4 @@
+import {QueueService} from '../Services';
 import bcrypt from 'bcryptjs';
 import moment from 'moment';
 import {Prisma, PasswordResetToken} from '../prisma';
@@ -5,9 +6,9 @@ import String from '../Utils/String';
 import {User} from '../prisma';
 import Authorization from '../Authorization/Authorization';
 import UserService from './UserService';
-import CommunicationService from './CommunicationService';
+import CommunicationService from './SMSService';
 
-export default class AuthService extends Authorization {
+export default class AuthService {
   static async login(data: User | any, _password: string) {
     const error: any = new Error();
 
@@ -36,13 +37,13 @@ export default class AuthService extends Authorization {
   }: User): Promise<PasswordResetToken> {
     return new Promise(async (resolve, reject) => {
       const expires_at = moment().add(10, 'm').toDate();
-      const token = this.createHash('1234');
+      const token = Authorization.createHash('1234');
 
       try {
         const isPasswordToken = await this.findPasswordToken(userId);
 
         if (!isPasswordToken) {
-          await CommunicationService.sendSms(phone, userId);
+          await QueueService.sendOTP(phone, '', userId);
           const created = await this.createPasswordToken({
             token,
             userId,
@@ -50,7 +51,7 @@ export default class AuthService extends Authorization {
           } as PasswordResetToken);
           return resolve(created as PasswordResetToken);
         }
-        await CommunicationService.sendSms(phone, userId);
+        await QueueService.sendOTP(phone, '', userId);
         return resolve(
           await this.updatePasswordToken(userId, {
             expires_at,
@@ -68,7 +69,7 @@ export default class AuthService extends Authorization {
       try {
         if (
           user &&
-          this.compareHash(token, user.token) &&
+          Authorization.compareHash(token, user.token) &&
           moment().isBefore(user.expires_at)
         ) {
           const verified = await this.updatePasswordToken(userId, {
@@ -86,7 +87,7 @@ export default class AuthService extends Authorization {
   static confirmResetPassword(id: string, newPassword: string) {
     return new Promise(async (resolve, reject) => {
       try {
-        const password = this.createHash(newPassword);
+        const password = Authorization.createHash(newPassword);
         await UserService.update({id}, {password} as User);
         await this.updatePasswordToken(id, {
           isVerified: false

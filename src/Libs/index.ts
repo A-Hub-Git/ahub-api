@@ -1,3 +1,4 @@
 import Logger from './Logger';
 import RedisClient from './redis';
-export {Logger, RedisClient};
+import RabbitMq from './rabbitMq';
+export {Logger, RedisClient, RabbitMq};
