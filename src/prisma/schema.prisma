@@ -126,3 +126,10 @@ model Transaction {
   amount             Float              @default(0.0)
   transaction_origin TRANSACTION_ORIGIN
 }
+
+model ZohoToken {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  access_token  String
+  refresh_token String
+  expires_in    String
+}

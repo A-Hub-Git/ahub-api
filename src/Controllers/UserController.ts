@@ -122,7 +122,7 @@ export default class UserController {
         if (user) {
           BaseRequestHandle.setError(
             HTTP_CODES.CONFLICT,
-            `You are already in our wait list`
+            `You are already on our wait list`
           );
           return BaseRequestHandle.send(res);
         }
@@ -133,9 +133,9 @@ export default class UserController {
           is_joined
         );
         return BaseRequestHandle.send(res);
-      } catch (error) {
+      } catch (error: any) {
         BaseRequestHandle.setError(
-          HTTP_CODES.INTERNAL_SERVER_ERROR,
+          HTTP_CODES.INTERNAL_SERVER_ERROR + error,
           ResponseMessage.INTERNAL_SERVER_ERROR
         );
         return BaseRequestHandle.send(res);

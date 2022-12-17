@@ -1,4 +1,5 @@
 import {
+  ZohoToken,
   PrismaClient,
   User,
   Role,
@@ -11,6 +12,7 @@ import {
 const Prisma = new PrismaClient();
 
 export {
+  ZohoToken,
   Prisma,
   User,
   Role,

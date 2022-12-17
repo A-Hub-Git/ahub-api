@@ -41,6 +41,7 @@ class App {
                 app.use('/api/v1/roles', Routes_1.Role);
                 app.use('/api/v1/auth', Routes_1.Auth);
                 app.use('/api/v1/tasks', Routes_1.Task);
+                app.use('/api/v1/mails', Routes_1.Mail);
                 app.get('/api/v1', (req, res) => {
                     try {
                         res.status(Enum_1.HTTP_CODES.OK).json('Welcome to A-hub API!!!');

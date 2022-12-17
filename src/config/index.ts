@@ -4,6 +4,8 @@ import pubNubConfig from './pubnub';
 import termiiConfig from './termii';
 import mailerConfig from './mail';
 import {redisConfig} from './redis';
+import zohoCrmConfig from './zoho';
+
 import {JWT_SECRET} from './middleware';
 
 export {
@@ -13,5 +15,6 @@ export {
   sinchConfig,
   pubNubConfig,
   termiiConfig,
-  mailerConfig
+  mailerConfig,
+  zohoCrmConfig
 };

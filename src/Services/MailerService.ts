@@ -25,9 +25,9 @@ class MailerService {
       }
     });
   }
-  _sendMail(to: string, subject: string, html: HTMLLIElement) {
+  _sendMail({to, subject, html, from}: IMail) {
     const options = {
-      from: this.config.from,
+      from,
       to,
       subject,
       html

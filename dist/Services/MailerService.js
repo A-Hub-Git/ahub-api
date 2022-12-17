@@ -22,9 +22,9 @@ class MailerService {
             }
         });
     }
-    _sendMail(to, subject, html) {
+    _sendMail({ to, subject, html, from }) {
         const options = {
-            from: this.config.from,
+            from,
             to,
             subject,
             html

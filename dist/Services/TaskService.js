@@ -15,8 +15,8 @@ class TaskService {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
                 try {
-                    const task = yield prisma_1.Prisma.task.create({ data });
-                    resolve(task);
+                    // const task = await Prisma.task.create({data});
+                    // resolve(task);
                 }
                 catch (error) {
                     reject(error);

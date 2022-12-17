@@ -4,8 +4,8 @@ export default class TaskService {
   static async createTask(data: Task) {
     return new Promise(async (resolve, reject) => {
       try {
-        const task = await Prisma.task.create({data});
-        resolve(task);
+        // const task = await Prisma.task.create({data});
+        // resolve(task);
       } catch (error) {
         reject(error);
       }

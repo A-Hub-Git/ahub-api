@@ -5,7 +5,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import {Logger} from '../Libs';
-import {User, Role, Auth, Task} from '../Routes';
+import {User, Role, Auth, Task, Mail} from '../Routes';
 import {Prisma} from '../prisma';
 import RedisClient from '../Libs/redis';
 
@@ -31,6 +31,7 @@ class App {
       app.use('/api/v1/roles', Role);
       app.use('/api/v1/auth', Auth);
       app.use('/api/v1/tasks', Task);
+      app.use('/api/v1/mails', Mail);
 
       app.get('/api/v1', (req: Request, res: Response) => {
         try {

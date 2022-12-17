@@ -123,7 +123,7 @@ class UserController {
                     return BaseRequestHandle_1.default.send(res);
                 }
                 catch (error) {
-                    BaseRequestHandle_1.default.setError(Enum_1.HTTP_CODES.INTERNAL_SERVER_ERROR, Enum_1.ResponseMessage.INTERNAL_SERVER_ERROR);
+                    BaseRequestHandle_1.default.setError(Enum_1.HTTP_CODES.INTERNAL_SERVER_ERROR + error, Enum_1.ResponseMessage.INTERNAL_SERVER_ERROR);
                     return BaseRequestHandle_1.default.send(res);
                 }
             }));

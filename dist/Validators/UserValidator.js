@@ -43,6 +43,18 @@ class UserValidator extends BaseValidator_1.default {
             yield this.validator(data, rule, res, cb);
         });
     }
+    static contactUs(data, res, cb) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const rule = {
+                'contact.email': 'required|email',
+                'contact.firstName': 'required|alpha',
+                'contact.lastName': 'required|alpha',
+                subject: 'required|string',
+                description: 'required|string'
+            };
+            yield this.validator(data, rule, res, cb);
+        });
+    }
 }
 exports.default = UserValidator;
 //# sourceMappingURL=UserValidator.js.map

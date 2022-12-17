@@ -8,4 +8,4 @@ const Controllers_1 = require("../Controllers");
 const Router = express_1.default.Router();
 Router.route('/').get(Controllers_1.UserController.getRoles).post(Controllers_1.UserController.createRole);
 exports.default = Router;
-//# sourceMappingURL=Role.js.map
+//# sourceMappingURL=RoleRoute.js.map

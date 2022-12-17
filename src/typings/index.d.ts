@@ -26,6 +26,13 @@ declare namespace Express {
     user?: any;
   }
 }
+
+interface IMail {
+  from?: string;
+  to?: string;
+  subject: string;
+  html: string;
+}
 declare global {
   interface window {
     example: string;

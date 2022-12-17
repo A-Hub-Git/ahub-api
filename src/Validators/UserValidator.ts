@@ -29,4 +29,15 @@ export default class UserValidator extends BaseValidator {
 
     await this.validator(data, rule, res, cb);
   }
+  static async contactUs(data: any, res: Response, cb: () => any) {
+    const rule = {
+      'contact.email': 'required|email',
+      'contact.firstName': 'required|alpha',
+      'contact.lastName': 'required|alpha',
+      subject: 'required|string',
+      description: 'required|string'
+    };
+
+    await this.validator(data, rule, res, cb);
+  }
 }

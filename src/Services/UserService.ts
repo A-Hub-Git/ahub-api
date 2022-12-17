@@ -97,11 +97,18 @@ export default class UserService extends Authorization {
       }
     });
   }
+
   static joinWaitList(email: string) {
     return new Promise(async (resolve, reject) => {
+      const data = {
+        from: process.env.MAIL_SENDER,
+        to: email,
+        subject: 'Waitlist',
+        html: wait_list
+      };
       try {
         const join = await Prisma.user.create({data: {email}});
-        await MailerService._sendMail(email, 'Wait List', wait_list);
+        await MailerService._sendMail(data);
         resolve(join);
       } catch (error) {
         reject(error);

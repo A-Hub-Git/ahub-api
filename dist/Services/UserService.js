@@ -110,9 +110,15 @@ class UserService extends Authorization_1.default {
     }
     static joinWaitList(email) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            const data = {
+                from: process.env.MAIL_SENDER,
+                to: email,
+                subject: 'Waitlist',
+                html: File_1.wait_list
+            };
             try {
                 const join = yield prisma_1.Prisma.user.create({ data: { email } });
-                yield MailerService_1.default._sendMail(email, 'Wait List', File_1.wait_list);
+                yield MailerService_1.default._sendMail(data);
                 resolve(join);
             }
             catch (error) {
