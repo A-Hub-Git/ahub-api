@@ -2,7 +2,6 @@ import {HTTP_CODES} from '../Utils/Enum';
 import BaseValidator from './BaseValidator';
 import {Prisma, User} from '../prisma';
 import {Response} from 'express';
-import BaseRequestHandle from '../Utils/BaseRequestHandle';
 
 export default class UserValidator extends BaseValidator {
   static async addTask(data: User, res: Response, cb: () => any) {
